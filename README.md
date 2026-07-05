@@ -50,6 +50,8 @@ python -m http.server 4173 --bind 127.0.0.1
 - 작업 인수인계를 위해 `plan.md`, `checklist.md`, `context-notes.md`를 추가했습니다.
 - GitHub Pages를 `main` 브랜치의 루트 경로로 활성화했습니다.
 - 배포 주소는 `https://asher8554.github.io/ui-base/`입니다.
+- `theme.css`, `theme.js`를 추가해 기본 다크모드를 적용했습니다.
+- 테마 전환 버튼을 추가해 필요하면 라이트모드로 바꿀 수 있게 했습니다.
 
 ## 검증 기록
 
@@ -60,7 +62,8 @@ python -m http.server 4173 --bind 127.0.0.1
 - 끊긴 로컬 링크가 없는 것을 확인했습니다.
 - `components.html`에서 모달, 토스트, 드롭다운, 탭, 사이드바 상호작용을 확인했습니다.
 - 데스크톱 index 화면과 모바일 components 화면을 캡처해 주요 레이아웃을 비교했습니다.
-- GitHub Pages 주소가 HTTP 200으로 열리고, 페이지 제목이 `Cursor AI를 위한 UI 디자인 갤러리 / 파일 다운로드`로 표시되는 것을 확인했습니다.
+- GitHub Pages 주소가 HTTP 200으로 열리고, 페이지 제목이 `AI를 위한 UI 디자인 갤러리 / 파일 다운로드`로 표시되는 것을 확인했습니다.
+- 기본 테마가 다크모드로 시작하고, 테마 버튼으로 라이트모드 전환이 되는 것을 확인했습니다.
 
 ## 커밋 기록
 

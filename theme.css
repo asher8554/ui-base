@@ -1,0 +1,126 @@
+/* 전체 페이지의 기본 다크모드와 테마 토글 스타일 */
+:root,
+:root.dark-mode {
+    color-scheme: dark;
+    --theme-bg: #0f172a;
+    --theme-surface: #111827;
+    --theme-surface-soft: #1f2937;
+    --theme-surface-muted: #263244;
+    --theme-text: #f8fafc;
+    --theme-muted: #cbd5e1;
+    --theme-border: #334155;
+    --theme-control: #0b1220;
+    --theme-control-border: #475569;
+}
+
+:root.light-mode {
+    color-scheme: light;
+    --theme-bg: #f3f4f6;
+    --theme-surface: #ffffff;
+    --theme-surface-soft: #f9fafb;
+    --theme-surface-muted: #f3f4f6;
+    --theme-text: #111827;
+    --theme-muted: #4b5563;
+    --theme-border: #e5e7eb;
+    --theme-control: #ffffff;
+    --theme-control-border: #d1d5db;
+}
+
+body.bg-gray-50,
+body.bg-gray-100 {
+    background: var(--theme-bg) !important;
+    color: var(--theme-text) !important;
+}
+
+.bg-white,
+.bg-gray-50,
+.bg-gray-100 {
+    background-color: var(--theme-surface) !important;
+    color: var(--theme-text) !important;
+}
+
+.bg-gray-200 {
+    background-color: var(--theme-surface-muted) !important;
+}
+
+.bg-yellow-100 {
+    background-color: #422006 !important;
+}
+
+.text-gray-900,
+.text-gray-800,
+.text-gray-700 {
+    color: var(--theme-text) !important;
+}
+
+.text-gray-600,
+.text-gray-500,
+.text-gray-400 {
+    color: var(--theme-muted) !important;
+}
+
+.border,
+.border-t,
+.border-b,
+.border-gray-200,
+.border-gray-300 {
+    border-color: var(--theme-border) !important;
+}
+
+input,
+textarea,
+select {
+    background-color: var(--theme-control) !important;
+    border-color: var(--theme-control-border) !important;
+    color: var(--theme-text) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--theme-muted) !important;
+}
+
+.shadow,
+.shadow-md,
+.shadow-lg,
+.shadow-xl {
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28) !important;
+}
+
+:root.light-mode .shadow,
+:root.light-mode .shadow-md,
+:root.light-mode .shadow-lg,
+:root.light-mode .shadow-xl {
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12) !important;
+}
+
+.theme-toggle {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 9999;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--theme-border);
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--theme-surface) 88%, transparent);
+    color: var(--theme-text);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.32);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-1px);
+}
+
+.theme-toggle:focus-visible {
+    outline: 3px solid #60a5fa;
+    outline-offset: 3px;
+}

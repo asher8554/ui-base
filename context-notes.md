@@ -21,4 +21,10 @@
 - GitHub Pages was not enabled at first. `gh api repos/asher8554/ui-base/pages` returned HTTP 404.
 - Enabled GitHub Pages with `main` branch and `/` path.
 - Published URL: `https://asher8554.github.io/ui-base/`.
-- Live verification initially returned 404 while Pages propagated, then returned HTTP 200 with title `Cursor AI를 위한 UI 디자인 갤러리 / 파일 다운로드`.
+- Live verification initially returned 404 while Pages propagated, then returned HTTP 200 with title `AI를 위한 UI 디자인 갤러리 / 파일 다운로드`.
+
+## 2026-07-05 Theme
+
+- Replaced public-facing tool-specific wording with generic AI wording.
+- Added `theme.css` and `theme.js`.
+- Theme default is dark. The floating theme button can switch to light mode and stores the choice in `localStorage`.
