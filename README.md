@@ -4,6 +4,8 @@ Yumeta Cursor UI 디자인 갤러리를 GitHub Pages에서 열 수 있도록 정
 
 원본 참고 페이지는 `https://yumeta.kr/web/cursor/index.php`입니다.
 
+배포된 GitHub Pages 주소는 `https://asher8554.github.io/ui-base/`입니다.
+
 ## Local Preview
 
 ```powershell
@@ -48,6 +50,8 @@ python -m http.server 4173 --bind 127.0.0.1
 - Alpine Collapse 플러그인이 없는데 쓰이던 `x-collapse` 속성을 제거했습니다.
 - 모든 HTML 파일은 `<!DOCTYPE html>`을 첫 줄로 유지하고, 그 다음 줄에 한국어 역할 주석을 넣었습니다.
 - 작업 인수인계를 위해 `plan.md`, `checklist.md`, `context-notes.md`를 추가했습니다.
+- GitHub Pages를 `main` 브랜치의 루트 경로로 활성화했습니다.
+- 배포 주소는 `https://asher8554.github.io/ui-base/`입니다.
 
 ## 검증 기록
 
@@ -58,6 +62,7 @@ python -m http.server 4173 --bind 127.0.0.1
 - 끊긴 로컬 링크가 없는 것을 확인했습니다.
 - `components.html`에서 모달, 토스트, 드롭다운, 탭, 사이드바 상호작용을 확인했습니다.
 - 데스크톱 index 화면과 모바일 components 화면을 캡처해 원본과 주요 레이아웃을 비교했습니다.
+- GitHub Pages 주소가 HTTP 200으로 열리고, 페이지 제목이 `Cursor AI를 위한 UI 디자인 갤러리 / 파일 다운로드`로 표시되는 것을 확인했습니다.
 
 ## 커밋 기록
 

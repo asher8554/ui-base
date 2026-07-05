@@ -10,3 +10,4 @@
 - [x] Verify links, responsiveness, and interactions.
 - [x] Update README.
 - [x] Commit completed work.
+- [x] Enable GitHub Pages and verify live URL.

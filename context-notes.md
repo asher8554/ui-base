@@ -15,3 +15,10 @@
 - Browser verification used Playwright with system Edge because bundled Playwright Chromium was missing.
 - Verified all 17 local `.html` pages return HTTP 200 and contain no `.php` links.
 - Verified component interactions with waits after modal transition: modal, toast, dropdown, tab, and sidebar all work.
+
+## 2026-07-05 GitHub Pages
+
+- GitHub Pages was not enabled at first. `gh api repos/asher8554/ui-base/pages` returned HTTP 404.
+- Enabled GitHub Pages with `main` branch and `/` path.
+- Published URL: `https://asher8554.github.io/ui-base/`.
+- Live verification initially returned 404 while Pages propagated, then returned HTTP 200 with title `Cursor AI를 위한 UI 디자인 갤러리 / 파일 다운로드`.
