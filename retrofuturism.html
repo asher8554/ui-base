@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- Cursor UI 디자인 갤러리 정적 페이지 -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레트로퓨처리즘 디자인</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: #000;
+            color: #0ff;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(transparent 50%, rgba(0, 255, 255, 0.1) 50%),
+                linear-gradient(90deg, rgba(255, 0, 255, 0.05), rgba(0, 255, 255, 0.05));
+            background-size: 4px 4px, 100% 100%;
+            pointer-events: none;
+            animation: scan 1s linear infinite;
+        }
+        @keyframes scan {
+            from { transform: translateY(0); }
+            to { transform: translateY(4px); }
+        }
+        .retro-card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #0ff;
+            box-shadow: 
+                0 0 10px #0ff,
+                inset 0 0 10px #0ff;
+            position: relative;
+            overflow: hidden;
+        }
+        .retro-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 0%,
+                rgba(0, 255, 255, 0.1) 50%,
+                transparent 100%
+            );
+            animation: shine 3s linear infinite;
+        }
+        @keyframes shine {
+            from { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            to { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        .retro-button {
+            background: #000;
+            border: 2px solid #0ff;
+            color: #0ff;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .retro-button:hover {
+            background: #0ff;
+            color: #000;
+            box-shadow: 0 0 20px #0ff;
+        }
+        .grid-bg {
+            background: 
+                linear-gradient(transparent 95%, #0ff 95%),
+                linear-gradient(90deg, transparent 95%, #0ff 95%);
+            background-size: 30px 30px;
+            animation: move-bg 15s linear infinite;
+        }
+        @keyframes move-bg {
+            from { background-position: 0 0; }
+            to { background-position: 30px 30px; }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-8">
+    <div class="grid-bg fixed inset-0 opacity-10"></div>
+    
+    <a href="index.html" class="retro-button fixed top-4 left-4 px-6 py-3 z-10">
+        ← RETURN
+    </a>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+        <h1 class="text-6xl font-bold text-center mb-12" style="text-shadow: 0 0 10px #0ff">
+            RETRO-FUTURISM
+        </h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="retro-card p-8">
+                    <div class="text-5xl mb-4">📄</div>
+                    <h2 class="text-xl font-bold mb-4 tracking-wider">문서</h2>
+                    <p class="text-sm opacity-80">문서 관리 시스템</p>
+                    <div class="mt-4 h-0.5 bg-cyan-400"></div>
+                </div>
+                            <div class="retro-card p-8">
+                    <div class="text-5xl mb-4">⚙️</div>
+                    <h2 class="text-xl font-bold mb-4 tracking-wider">설정</h2>
+                    <p class="text-sm opacity-80">시스템 환경 설정</p>
+                    <div class="mt-4 h-0.5 bg-cyan-400"></div>
+                </div>
+                            <div class="retro-card p-8">
+                    <div class="text-5xl mb-4">📊</div>
+                    <h2 class="text-xl font-bold mb-4 tracking-wider">통계</h2>
+                    <p class="text-sm opacity-80">데이터 분석 및 통계</p>
+                    <div class="mt-4 h-0.5 bg-cyan-400"></div>
+                </div>
+                    </div>
+
+        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+                            <button class="retro-button px-6 py-3">
+                    설정                </button>
+                            <button class="retro-button px-6 py-3">
+                    저장                </button>
+                            <button class="retro-button px-6 py-3">
+                    공유                </button>
+                            <button class="retro-button px-6 py-3">
+                    삭제                </button>
+                    </div>
+
+        <nav class="mt-16 flex justify-center space-x-8">
+                            <a href="#" class="retro-button px-4 py-2">
+                    홈                </a>
+                            <a href="#" class="retro-button px-4 py-2">
+                    소개                </a>
+                            <a href="#" class="retro-button px-4 py-2">
+                    서비스                </a>
+                            <a href="#" class="retro-button px-4 py-2">
+                    문의                </a>
+                    </nav>
+
+        <div class="fixed bottom-0 left-0 w-full bg-black border-t-2 border-cyan-400 p-2">
+            <div class="text-xs text-center tracking-[0.2em]">
+                SYSTEM.STATUS: ONLINE | MEMORY: 640K | CPU: 4.77MHz | YEAR: 20XX
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
+

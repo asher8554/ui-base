@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<!-- Cursor UI 디자인 갤러리 정적 페이지 -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI 컴포넌트 갤러리</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" 
+                       class="mr-4 inline-flex items-center text-gray-600 hover:text-gray-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                        </svg>
+                        <span class="ml-2">뒤로가기</span>
+                    </a>
+                    <h1 class="text-3xl font-bold text-gray-900">UI 컴포넌트 갤러리</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Carousel 
+                        <span class="text-gray-500 text-lg">(캐러셀/슬라이더)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">여러 컨텐츠를 슬라이드 형태로 보여주는 컴포넌트</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div x-data="{ currentSlide: 0 }" class="relative h-32 bg-white rounded-lg overflow-hidden">
+                                <template x-for="(slide, index) in ['슬라이드 1', '슬라이드 2', '슬라이드 3']">
+                                    <div x-show="currentSlide === index"
+                                         class="absolute inset-0 flex items-center justify-center text-xl"
+                                         x-transition:enter="transition ease-out duration-300"
+                                         x-transition:enter-start="opacity-0 transform translate-x-full"
+                                         x-transition:enter-end="opacity-100 transform translate-x-0"
+                                         x-transition:leave="transition ease-in duration-300"
+                                         x-transition:leave-start="opacity-100 transform translate-x-0"
+                                         x-transition:leave-end="opacity-0 transform -translate-x-full"
+                                         x-text="slide">
+                                    </div>
+                                </template>
+                                <button @click="currentSlide = (currentSlide - 1 + 3) % 3" 
+                                        class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white rounded-full p-2">
+                                    ←
+                                </button>
+                                <button @click="currentSlide = (currentSlide + 1) % 3" 
+                                        class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white rounded-full p-2">
+                                    →
+                                </button>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Modal 
+                        <span class="text-gray-500 text-lg">(모달/팝업)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">기존 페이지 위에 떠있는 창으로, 중요 알림이나 상세 정보를 표시</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div x-data="{ isOpen: false }">
+                                <button @click="isOpen = true" 
+                                        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                                    모달 열기
+                                </button>
+                                <div x-show="isOpen" 
+                                     x-cloak
+                                     class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                                    <div @click.away="isOpen = false"
+                                         class="bg-white p-6 rounded-lg max-w-md mx-4">
+                                        <h3 class="text-lg font-bold mb-4">모달 제목</h3>
+                                        <p class="mb-4">모달 내용이 여기에 들어갑니다.</p>
+                                        <button @click="isOpen = false" 
+                                                class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
+                                            닫기
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Accordion 
+                        <span class="text-gray-500 text-lg">(아코디언)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">클릭하면 펼쳐지는 접이식 컨텐츠 컴포넌트</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div x-data="{ selected: null }">
+                                <div class="space-y-2">
+                                    <template x-for="i in 3">
+                                        <div class="border rounded">
+                                            <button @click="selected !== i ? selected = i : selected = null"
+                                                    class="w-full px-4 py-2 text-left font-medium flex justify-between items-center">
+                                                <span x-text="'섹션 ' + i"></span>
+                                                <span x-text="selected === i ? '−' : '+'"></span>
+                                            </button>
+                                            <div x-show="selected === i"
+                                                 class="px-4 py-2 border-t">
+                                                섹션 내용입니다.
+                                            </div>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Card 
+                        <span class="text-gray-500 text-lg">(카드)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">관련 정보를 담은 컨텐츠를 카드 형태로 보여주는 컴포넌트</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div class="bg-white rounded-lg shadow-md p-4">
+                                <img src="https://via.placeholder.com/150" alt="카드 이미지" class="w-full h-32 object-cover rounded mb-4">
+                                <h3 class="font-bold mb-2">카드 제목</h3>
+                                <p class="text-gray-600 text-sm">카드 내용이 여기에 들어갑니다.</p>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Tooltip 
+                        <span class="text-gray-500 text-lg">(툴팁)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">요소에 마우스를 올렸을 때 추가 정보를 보여주는 작은 팝업</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div class="relative inline-block" x-data="{ show: false }">
+                                <button @mouseenter="show = true" 
+                                        @mouseleave="show = false"
+                                        class="bg-blue-500 text-white px-4 py-2 rounded">
+                                    마우스를 올려주세요
+                                </button>
+                                <div x-show="show"
+                                     x-cloak
+                                     class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-sm rounded">
+                                    툴팁 내용
+                                </div>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Dialog 
+                        <span class="text-gray-500 text-lg">(다이얼로그)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">사용자의 응답이나 입력을 요구하는 대화상자</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div x-data="{ open: false }">
+                                <button @click="open = true" 
+                                        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                                    대화상자 열기
+                                </button>
+                                <div x-show="open" 
+                                     x-cloak
+                                     class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                                    <div class="bg-white p-6 rounded-lg max-w-md mx-4">
+                                        <h3 class="text-lg font-bold mb-4">확인</h3>
+                                        <p class="mb-4">계속 진행하시겠습니까?</p>
+                                        <div class="flex justify-end space-x-2">
+                                            <button @click="open = false" 
+                                                    class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
+                                                취소
+                                            </button>
+                                            <button @click="open = false" 
+                                                    class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                                                확인
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Input Field 
+                        <span class="text-gray-500 text-lg">(입력 필드)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">한 줄 텍스트를 입력받는 기본적인 입력 창</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <input type="text" 
+                                   placeholder="텍스트를 입력하세요" 
+                                   class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Textarea 
+                        <span class="text-gray-500 text-lg">(텍스트영역)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">여러 줄의 텍스트를 입력할 수 있는 큰 입력 창</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <textarea placeholder="여러 줄의 텍스트를 입력하세요" 
+                                      class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 h-24"></textarea>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Button 
+                        <span class="text-gray-500 text-lg">(버튼)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">다양한 크기의 스타일을 가진 클릭 가능한 버튼 컴포넌트</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div class="space-y-4">
+                                <!-- 크기별 버튼 -->
+                                <div class="space-x-2">
+                                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 text-sm rounded">
+                                        Small
+                                    </button>
+                                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                                        Medium
+                                    </button>
+                                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 text-lg rounded">
+                                        Large
+                                    </button>
+                              
+                                    
+                                </div>
+
+                            </div>
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Select Box 
+                        <span class="text-gray-500 text-lg">(선택 상자)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">여러 옵션 중 선택할 수 있는 드롭다운 메뉴</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <select class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option>옵션 1</option>
+                                <option>옵션 2</option>
+                                <option>옵션 3</option>
+                            </select>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Radio Button 
+                        <span class="text-gray-500 text-lg">(라디오 버튼)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">여러 옵션 중 하나만 선택 가능한 동그란 버튼</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="demo-radio" class="mr-2">
+                                    <span>옵션 1</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="demo-radio" class="mr-2">
+                                    <span>옵션 2</span>
+                                </label>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Checkbox 
+                        <span class="text-gray-500 text-lg">(체크박스)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">다중 선택이 가능한 네모난 버튼</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span>옵션 1</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span>옵션 2</span>
+                                </label>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Progress Bar 
+                        <span class="text-gray-500 text-lg">(진행 바)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">진행 상태를 막대 형태로 표시하는 컴포넌트</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div class="w-full bg-gray-200 rounded-full h-4">
+                                <div class="bg-blue-500 h-4 rounded-full w-2/3"></div>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Loading Spinner 
+                        <span class="text-gray-500 text-lg">(로딩 표시)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">데이터 로딩 중임을 알리는 회전하는 아이콘</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div class="animate-spin rounded-full h-8 w-8 border-4 border-blue-500 border-t-transparent"></div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Toast Message 
+                        <span class="text-gray-500 text-lg">(토스트 메시지)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">화면 구석에 잠깐 나타났다 사라지는 알림</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div x-data="{ show: false }" @click="show = true">
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                                    토스트 메시지 표시
+                                </button>
+                                <div x-show="show" 
+                                     x-transition
+                                     x-init="setTimeout(() => show = false, 3000)"
+                                     class="fixed bottom-4 right-4 bg-gray-900 text-white px-6 py-3 rounded shadow-lg">
+                                    알림 메시지입니다!
+                                </div>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Badge 
+                        <span class="text-gray-500 text-lg">(뱃지)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">알림이나 상태를 표시하는 작은 표시</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div class="relative inline-block">
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded">
+                                    알림
+                                    <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                                        9+
+                                    </span>
+                                </button>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Skeleton 
+                        <span class="text-gray-500 text-lg">(스켈레톤)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">컨텐츠 로딩 중 임시로 표시되는 뼈대 화면</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div class="space-y-3">
+                                <div class="h-4 bg-gray-200 rounded animate-pulse"></div>
+                                <div class="h-4 bg-gray-200 rounded animate-pulse w-5/6"></div>
+                                <div class="h-4 bg-gray-200 rounded animate-pulse w-4/6"></div>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Pagination 
+                        <span class="text-gray-500 text-lg">(페이지네이션)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">여러 페이지의 컨텐츠를 이동할 수 있는 네비게이션</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div class="flex justify-center space-x-1">
+                                <button class="px-3 py-1 rounded border hover:bg-gray-100">&lt;</button>
+                                <button class="px-3 py-1 rounded border bg-blue-500 text-white">1</button>
+                                <button class="px-3 py-1 rounded border hover:bg-gray-100">2</button>
+                                <button class="px-3 py-1 rounded border hover:bg-gray-100">3</button>
+                                <button class="px-3 py-1 rounded border hover:bg-gray-100">&gt;</button>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Dropdown 
+                        <span class="text-gray-500 text-lg">(드롭다운)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">클릭하면 아래로 펼쳐지는 메뉴</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div x-data="{ open: false }" class="relative">
+                                <button @click="open = !open"
+                                        class="bg-blue-500 text-white px-4 py-2 rounded inline-flex items-center">
+                                    <span>드롭다운</span>
+                                    <span class="ml-2">▼</span>
+                                </button>
+                                <div x-show="open"
+                                     @click.away="open = false"
+                                     x-cloak
+                                     class="absolute mt-2 w-48 bg-white rounded-lg shadow-lg">
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">메뉴 1</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">메뉴 2</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">메뉴 3</a>
+                                </div>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Sidebar 
+                        <span class="text-gray-500 text-lg">(사이드바)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">화면 측면에 위치한 보조 네비게이션</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div x-data="{ open: false }">
+                                <button @click="open = true" class="bg-blue-500 text-white px-4 py-2 rounded">
+                                    사이드바 열기
+                                </button>
+                                <div x-show="open"
+                                     x-cloak
+                                     class="fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform transition-transform duration-300"
+                                     :class="open ? 'translate-x-0' : '-translate-x-full'">
+                                    <div class="p-4">
+                                        <div class="flex justify-between items-center mb-4">
+                                            <h3 class="font-bold">사이드바</h3>
+                                            <button @click="open = false">&times;</button>
+                                        </div>
+                                        <nav class="space-y-2">
+                                            <a href="#" class="block py-2 hover:bg-gray-100">메뉴 1</a>
+                                            <a href="#" class="block py-2 hover:bg-gray-100">메뉴 2</a>
+                                            <a href="#" class="block py-2 hover:bg-gray-100">메뉴 3</a>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Menu Bar 
+                        <span class="text-gray-500 text-lg">(메뉴 바)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">주요 네비게이션 메뉴를 담은 가로/세로 바</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <nav class="bg-gray-800 text-white p-4 rounded-lg">
+                                <ul class="flex space-x-4">
+                                    <li><a href="#" class="hover:text-gray-300">홈</a></li>
+                                    <li><a href="#" class="hover:text-gray-300">소개</a></li>
+                                    <li><a href="#" class="hover:text-gray-300">서비스</a></li>
+                                    <li><a href="#" class="hover:text-gray-300">문의</a></li>
+                                </ul>
+                            </nav>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Hamburger Menu 
+                        <span class="text-gray-500 text-lg">(햄버거 메뉴)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">세 개의 가로선으로 된 아이콘으로, 클릭 시 메뉴가 펼쳐지는 모바일 네비게이션</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div x-data="{ open: false }">
+                                <button @click="open = !open" class="relative z-50 p-2">
+                                    <div class="w-6 h-0.5 bg-gray-600 mb-1.5 transition-all"
+                                         :class="open ? 'transform rotate-45 translate-y-2' : ''"></div>
+                                    <div class="w-6 h-0.5 bg-gray-600 mb-1.5 transition-all"
+                                         :class="open ? 'opacity-0' : ''"></div>
+                                    <div class="w-6 h-0.5 bg-gray-600 transition-all"
+                                         :class="open ? 'transform -rotate-45 -translate-y-2' : ''"></div>
+                                </button>
+                                <nav x-show="open"
+                                     x-cloak
+                                     class="fixed inset-0 bg-white z-40 p-4">
+                                    <ul class="space-y-4 text-xl">
+                                        <li><a href="#" class="block">홈</a></li>
+                                        <li><a href="#" class="block">소개</a></li>
+                                        <li><a href="#" class="block">서비스</a></li>
+                                        <li><a href="#" class="block">문의</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Tab Panel 
+                        <span class="text-gray-500 text-lg">(탭 패널)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">여러 콘텐츠를 탭으로 구분하여 보여주는 컴포넌트</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div x-data="{ activeTab: 1 }" class="w-full">
+                                <div class="flex border-b">
+                                    <button @click="activeTab = 1" 
+                                            :class="{ 'border-b-2 border-blue-500': activeTab === 1 }"
+                                            class="px-4 py-2 font-medium">
+                                        탭 1
+                                    </button>
+                                    <button @click="activeTab = 2"
+                                            :class="{ 'border-b-2 border-blue-500': activeTab === 2 }"
+                                            class="px-4 py-2 font-medium">
+                                        탭 2
+                                    </button>
+                                    <button @click="activeTab = 3"
+                                            :class="{ 'border-b-2 border-blue-500': activeTab === 3 }"
+                                            class="px-4 py-2 font-medium">
+                                        탭 3
+                                    </button>
+                                </div>
+                                <div class="p-4">
+                                    <div x-show="activeTab === 1">탭 1 내용입니다.</div>
+                                    <div x-show="activeTab === 2">탭 2 내용입니다.</div>
+                                    <div x-show="activeTab === 3">탭 3 내용입니다.</div>
+                                </div>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        File Upload 
+                        <span class="text-gray-500 text-lg">(파일 업로드)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">드래그 앤 드롭으로 파일을 업로드할 수 있는 컴포넌트</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div x-data="{ files: null }"
+                                 class="relative border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                                <input type="file" multiple
+                                       class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                                       @change="files = $event.target.files">
+                                <div x-show="!files">
+                                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <p class="mt-2">파일을 드래그하거나 클릭하여 업로드</p>
+                                </div>
+                                <div x-show="files">
+                                    <p x-text="files ? `${files.length}개의 파일이 선택됨` : ''"></p>
+                                </div>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Search Bar 
+                        <span class="text-gray-500 text-lg">(검색창)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">검색어 입력과 자동완성을 지원하는 검색 컴포넌트</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div x-data="{ search: '', suggestions: ['검색어 추천 1', '검색어 추천 2', '검색어 추천 3'] }" class="relative">
+                                <div class="relative">
+                                    <input type="text" 
+                                           x-model="search"
+                                           placeholder="검색어를 입력하세요"
+                                           class="w-full pl-10 pr-4 py-2 border rounded-lg">
+                                    <svg class="absolute left-3 top-2.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                </div>
+                                <div x-show="search.length > 0" 
+                                     class="absolute w-full mt-1 bg-white border rounded-lg shadow-lg">
+                                    <template x-for="suggestion in suggestions">
+                                        <div class="px-4 py-2 hover:bg-gray-100 cursor-pointer" x-text="suggestion"></div>
+                                    </template>
+                                </div>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Rating 
+                        <span class="text-gray-500 text-lg">(별점)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">1-5점까지 별점을 매길 수 있는 평가 컴포넌트</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div x-data="{ rating: 0, hover: 0 }" class="flex">
+                                <template x-for="i in 5">
+                                    <button @click="rating = i" 
+                                            @mouseover="hover = i"
+                                            @mouseleave="hover = rating"
+                                            class="text-2xl"
+                                            :class="{ 'text-yellow-400': i <= (hover || rating), 'text-gray-300': i > (hover || rating) }">
+                                        ★
+                                    </button>
+                                </template>
+                            </div>
+
+                                            </div>
+                </div>
+                            <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-2xl font-bold mb-2">
+                        Timeline 
+                        <span class="text-gray-500 text-lg">(타임라인)</span>
+                    </h2>
+                    <p class="text-gray-600 mb-4">시간 순서대로 정보를 보여주는 컴포넌트</p>
+                    
+                    <!-- 각 컴포넌트별 데모 -->
+                    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                                                    <div class="relative border-l-2 border-gray-200 ml-3">
+                                <div class="mb-8 flex items-center">
+                                    <div class="absolute -left-1.5 mt-1.5 w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="ml-6">
+                                        <p class="font-semibold">이벤트 1</p>
+                                        <p class="text-sm text-gray-500">2024년 3월 1일</p>
+                                        <p class="mt-1">첫 번째 이벤트 내용입니다.</p>
+                                    </div>
+                                </div>
+                                <div class="mb-8 flex items-center">
+                                    <div class="absolute -left-1.5 mt-1.5 w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="ml-6">
+                                        <p class="font-semibold">이벤트 2</p>
+                                        <p class="text-sm text-gray-500">2024년 3월 15일</p>
+                                        <p class="mt-1">두 번째 이벤트 내용입니다.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="absolute -left-1.5 mt-1.5 w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="ml-6">
+                                        <p class="font-semibold">이벤트 3</p>
+                                        <p class="text-sm text-gray-500">2024년 4월 1일</p>
+                                        <p class="mt-1">세 번째 이벤트 내용입니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                                            </div>
+                </div>
+                    </div>
+
+        <footer class="mt-16 text-center text-gray-600">
+            <p>© 2024 UI 컴포넌트 갤러리. 모든 권리 보유.</p>
+        </footer>
+    </main>
+</body>
+</html> 
+

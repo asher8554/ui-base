@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- Cursor UI 디자인 갤러리 정적 페이지 -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미니멀리즘 디자인</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .minimal-card {
+            background: #ffffff;
+            border: 1px solid #f0f0f0;
+            transition: all 0.2s ease;
+        }
+        .minimal-card:hover {
+            border-color: #000;
+        }
+        .minimal-button {
+            background: #ffffff;
+            border: 1px solid #000;
+            transition: all 0.2s ease;
+        }
+        .minimal-button:hover {
+            background: #000;
+            color: #fff;
+        }
+        .minimal-link {
+            position: relative;
+        }
+        .minimal-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #000;
+            transition: width 0.2s ease;
+        }
+        .minimal-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-8">
+    <a href="index.html" class="minimal-button fixed top-4 left-4 px-4 py-2">← 돌아가기</a>
+
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-normal text-center mb-16">미니멀리즘 디자인</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                            <div class="minimal-card p-8">
+                    <div class="text-2xl mb-6 opacity-80">📄</div>
+                    <h2 class="text-lg mb-4">문서</h2>
+                    <p class="text-sm text-gray-600">문서 관리 시스템</p>
+                </div>
+                            <div class="minimal-card p-8">
+                    <div class="text-2xl mb-6 opacity-80">⚙️</div>
+                    <h2 class="text-lg mb-4">설정</h2>
+                    <p class="text-sm text-gray-600">시스템 환경 설정</p>
+                </div>
+                            <div class="minimal-card p-8">
+                    <div class="text-2xl mb-6 opacity-80">📊</div>
+                    <h2 class="text-lg mb-4">통계</h2>
+                    <p class="text-sm text-gray-600">데이터 분석 및 통계</p>
+                </div>
+                    </div>
+
+        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+                            <button class="minimal-button px-6 py-3">
+                    설정                </button>
+                            <button class="minimal-button px-6 py-3">
+                    저장                </button>
+                            <button class="minimal-button px-6 py-3">
+                    공유                </button>
+                            <button class="minimal-button px-6 py-3">
+                    삭제                </button>
+                    </div>
+
+        <nav class="mt-16 flex justify-center space-x-12">
+                            <a href="#" class="minimal-link text-sm">
+                    홈                </a>
+                            <a href="#" class="minimal-link text-sm">
+                    소개                </a>
+                            <a href="#" class="minimal-link text-sm">
+                    서비스                </a>
+                            <a href="#" class="minimal-link text-sm">
+                    문의                </a>
+                    </nav>
+    </div>
+</body>
+</html> 
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- Cursor UI 디자인 갤러리 정적 페이지 -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맥시멀리즘 디자인</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+        
+        body {
+            background: 
+                linear-gradient(45deg, #000 25%, transparent 25%),
+                linear-gradient(-45deg, #000 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #000 75%),
+                linear-gradient(-45deg, transparent 75%, #000 75%);
+            background-size: 20px 20px;
+            background-color: #1a1a1a;
+            font-family: 'Playfair Display', serif;
+        }
+        .maximal-card {
+            background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
+            border: 2px solid gold;
+            box-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.3),
+                0 0 40px rgba(255, 215, 0, 0.2);
+        }
+        .ornate-border {
+            border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none' stroke='gold' stroke-width='4'/%3E%3C/svg%3E") 1;
+            border-width: 4px;
+            border-style: solid;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-8">
+    <a href="index.html" class="maximal-card fixed top-4 left-4 px-6 py-3 rounded-lg text-gold">
+        ← 돌아가기
+    </a>
+
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-6xl font-bold text-gold text-center mb-12 ornate-border p-8">
+            맥시멀리즘 디자인
+        </h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                            <div class="maximal-card p-8 rounded-lg transform hover:scale-105 transition-transform">
+                    <div class="text-6xl mb-4">📄</div>
+                    <h2 class="text-2xl font-bold text-gold mb-4">문서</h2>
+                    <p class="text-white/80">문서 관리 시스템</p>
+                    <div class="mt-4 h-1 bg-gradient-to-r from-gold via-white to-gold"></div>
+                </div>
+                            <div class="maximal-card p-8 rounded-lg transform hover:scale-105 transition-transform">
+                    <div class="text-6xl mb-4">⚙️</div>
+                    <h2 class="text-2xl font-bold text-gold mb-4">설정</h2>
+                    <p class="text-white/80">시스템 환경 설정</p>
+                    <div class="mt-4 h-1 bg-gradient-to-r from-gold via-white to-gold"></div>
+                </div>
+                            <div class="maximal-card p-8 rounded-lg transform hover:scale-105 transition-transform">
+                    <div class="text-6xl mb-4">📊</div>
+                    <h2 class="text-2xl font-bold text-gold mb-4">통계</h2>
+                    <p class="text-white/80">데이터 분석 및 통계</p>
+                    <div class="mt-4 h-1 bg-gradient-to-r from-gold via-white to-gold"></div>
+                </div>
+                    </div>
+
+        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+                            <button class="maximal-card px-8 py-4 rounded-lg text-gold font-bold hover:text-white transition-colors">
+                    설정                </button>
+                            <button class="maximal-card px-8 py-4 rounded-lg text-gold font-bold hover:text-white transition-colors">
+                    저장                </button>
+                            <button class="maximal-card px-8 py-4 rounded-lg text-gold font-bold hover:text-white transition-colors">
+                    공유                </button>
+                            <button class="maximal-card px-8 py-4 rounded-lg text-gold font-bold hover:text-white transition-colors">
+                    삭제                </button>
+                    </div>
+
+        <nav class="mt-16 flex justify-center space-x-12">
+                            <a href="#" class="maximal-card px-6 py-3 rounded-lg text-gold hover:text-white transition-colors">
+                    홈                </a>
+                            <a href="#" class="maximal-card px-6 py-3 rounded-lg text-gold hover:text-white transition-colors">
+                    소개                </a>
+                            <a href="#" class="maximal-card px-6 py-3 rounded-lg text-gold hover:text-white transition-colors">
+                    서비스                </a>
+                            <a href="#" class="maximal-card px-6 py-3 rounded-lg text-gold hover:text-white transition-colors">
+                    문의                </a>
+                    </nav>
+    </div>
+</body>
+</html> 
+

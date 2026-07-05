@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- Cursor UI 디자인 갤러리 정적 페이지 -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바이오모픽 디자인</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: #f0f7f4;
+            overflow-x: hidden;
+        }
+        .bio-shape {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+        .bio-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        .bio-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 32px;
+            padding: 2px;
+            background: linear-gradient(45deg, #86efac, #38bdf8);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+        .bio-button {
+            background: linear-gradient(45deg, #86efac, #38bdf8);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .bio-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen p-8">
+    <div class="bio-shape w-96 h-96 bg-green-300 top-0 left-0"></div>
+    <div class="bio-shape w-96 h-96 bg-blue-300 bottom-0 right-0"></div>
+    
+    <a href="index.html" class="bio-button fixed top-4 left-4 px-6 py-3 text-white">← 돌아가기</a>
+
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-5xl font-bold text-gray-800 text-center mb-12">바이오모픽 디자인</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="bio-card p-8 relative">
+                    <div class="text-4xl mb-4">📄</div>
+                    <h2 class="text-xl font-bold text-gray-800 mb-2">문서</h2>
+                    <p class="text-gray-600">문서 관리 시스템</p>
+                </div>
+                            <div class="bio-card p-8 relative">
+                    <div class="text-4xl mb-4">⚙️</div>
+                    <h2 class="text-xl font-bold text-gray-800 mb-2">설정</h2>
+                    <p class="text-gray-600">시스템 환경 설정</p>
+                </div>
+                            <div class="bio-card p-8 relative">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h2 class="text-xl font-bold text-gray-800 mb-2">통계</h2>
+                    <p class="text-gray-600">데이터 분석 및 통계</p>
+                </div>
+                    </div>
+
+        <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+                            <button class="bio-button px-6 py-3 text-white font-medium">
+                    설정                </button>
+                            <button class="bio-button px-6 py-3 text-white font-medium">
+                    저장                </button>
+                            <button class="bio-button px-6 py-3 text-white font-medium">
+                    공유                </button>
+                            <button class="bio-button px-6 py-3 text-white font-medium">
+                    삭제                </button>
+                    </div>
+
+        <nav class="mt-12 flex justify-center space-x-8">
+                            <a href="#" class="bio-button px-4 py-2 text-white">
+                    홈                </a>
+                            <a href="#" class="bio-button px-4 py-2 text-white">
+                    소개                </a>
+                            <a href="#" class="bio-button px-4 py-2 text-white">
+                    서비스                </a>
+                            <a href="#" class="bio-button px-4 py-2 text-white">
+                    문의                </a>
+                    </nav>
+    </div>
+</body>
+</html> 
+

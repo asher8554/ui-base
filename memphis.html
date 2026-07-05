@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- Cursor UI 디자인 갤러리 정적 페이지 -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>멤피스 디자인</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+        body {
+            background: #fff;
+            font-family: 'VT323', monospace;
+            background-image: 
+                radial-gradient(circle at 50px 50px, #FFD700 10px, transparent 11px),
+                radial-gradient(circle at 150px 150px, #FF69B4 15px, transparent 16px),
+                radial-gradient(circle at 250px 250px, #00CED1 12px, transparent 13px);
+        }
+        .memphis-card {
+            background: white;
+            border: 3px solid black;
+            position: relative;
+        }
+        .memphis-card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: -10px;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                #FFD700,
+                #FFD700 10px,
+                #FF69B4 10px,
+                #FF69B4 20px
+            );
+            z-index: -1;
+        }
+        .memphis-button {
+            background: white;
+            border: 3px solid black;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        .memphis-button::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 100%;
+            height: 100%;
+            background: #00CED1;
+            z-index: -1;
+            transition: all 0.2s ease;
+        }
+        .memphis-button:hover {
+            transform: translate(5px, 5px);
+        }
+        .memphis-button:hover::after {
+            transform: translate(-10px, -10px);
+        }
+        .zigzag {
+            background: 
+                linear-gradient(45deg, transparent 75%, #FF69B4 75%) 0 0,
+                linear-gradient(-45deg, transparent 75%, #FF69B4 75%) 0 0;
+            background-size: 10px 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-8">
+    <a href="index.html" class="memphis-button fixed top-4 left-4 px-6 py-3 z-10">← 돌아가기</a>
+
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-6xl font-bold text-center mb-12 relative">
+            멤피스 디자인
+            <div class="zigzag absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-48 h-4"></div>
+        </h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                            <div class="memphis-card p-8 transform rotate-1">
+                    <div class="text-5xl mb-4">📄</div>
+                    <h2 class="text-2xl font-bold mb-4">문서</h2>
+                    <p>문서 관리 시스템</p>
+                </div>
+                            <div class="memphis-card p-8 transform rotate-1">
+                    <div class="text-5xl mb-4">⚙️</div>
+                    <h2 class="text-2xl font-bold mb-4">설정</h2>
+                    <p>시스템 환경 설정</p>
+                </div>
+                            <div class="memphis-card p-8 transform rotate-1">
+                    <div class="text-5xl mb-4">📊</div>
+                    <h2 class="text-2xl font-bold mb-4">통계</h2>
+                    <p>데이터 분석 및 통계</p>
+                </div>
+                    </div>
+
+        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+                            <button class="memphis-button px-6 py-3 font-bold">
+                    설정                </button>
+                            <button class="memphis-button px-6 py-3 font-bold">
+                    저장                </button>
+                            <button class="memphis-button px-6 py-3 font-bold">
+                    공유                </button>
+                            <button class="memphis-button px-6 py-3 font-bold">
+                    삭제                </button>
+                    </div>
+
+        <nav class="mt-16 flex justify-center space-x-8">
+                            <a href="#" class="memphis-button px-4 py-2">
+                    홈                </a>
+                            <a href="#" class="memphis-button px-4 py-2">
+                    소개                </a>
+                            <a href="#" class="memphis-button px-4 py-2">
+                    서비스                </a>
+                            <a href="#" class="memphis-button px-4 py-2">
+                    문의                </a>
+                    </nav>
+    </div>
+</body>
+</html> 
+

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!-- Cursor UI 디자인 갤러리 정적 페이지 -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 갤러리</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar 섹션 설명 -->
+    <div class="fixed w-full bg-yellow-100 text-yellow-800 px-4 py-2 text-sm z-50">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="font-bold">Navbar (네비게이션 바)</h3>
+            <p>웹사이트의 최상단에 위치한 메뉴 바로, 주요 메뉴, 로고, 검색창, 로그인 버튼 등을 포함</p>
+        </div>
+    </div>
+
+    <!-- Navbar 섹션 -->
+    <nav class="bg-white shadow fixed w-full z-40 mt-14">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-xl font-bold text-gray-800">Logo</a>
+                    <div class="hidden md:flex items-center space-x-4 ml-10">
+                        <a href="#" class="text-gray-600 hover:text-gray-900 px-3 py-2">홈</a>
+                        <a href="#" class="text-gray-600 hover:text-gray-900 px-3 py-2">서비스</a>
+                        <a href="#" class="text-gray-600 hover:text-gray-900 px-3 py-2">제품</a>
+                        <a href="#" class="text-gray-600 hover:text-gray-900 px-3 py-2">문의</a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">로그인</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero 섹션 시작 부분에 여백 추가 -->
+    <div class="pt-40">
+        <!-- Hero 섹션 설명 -->
+        <div class="bg-yellow-100 text-yellow-800 px-4 py-2 text-sm">
+            <div class="max-w-7xl mx-auto">
+                <h3 class="font-bold">Hero Section (히어로 섹션)</h3>
+                <p>웹사이트의 첫 화면에 보이는 대형 배너 영역, 핵심 메시지, 큰 이미지/비디오, 행동 유도 버튼(CTA) 포함</p>
+            </div>
+        </div>
+
+        <!-- Hero 섹션 -->
+        <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <h1 class="text-5xl font-bold mb-6">멋진 웹사이트를 만들어보세요</h1>
+                        <p class="text-xl mb-8">최신 기술과 트렌디한 디자인으로 당신의 비즈니스를 성장시키세요.</p>
+                        <button class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold">시작하기</button>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://via.placeholder.com/600x400" alt="Hero Image" class="rounded-lg shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Features 섹션 설명 -->
+    <div class="bg-yellow-100 text-yellow-800 px-4 py-2 text-sm">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="font-bold">Features Section (특징 섹션)</h3>
+            <p>제품/서비스의 주요 기능이나 특징을 소개하는 영역, 보통 아이콘/이미지와 설명 텍스트의 조합으로 구성</p>
+        </div>
+    </div>
+
+    <!-- Features 섹션 -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">주요 기능</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">빠른 속도</h3>
+                    <p class="text-gray-600">최적화된 성능으로 빠른 로딩 속도를 제공합니다.</p>
+                </div>
+                <!-- 추가 Feature 카드들 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About 섹션 설명 -->
+    <div class="bg-yellow-100 text-yellow-800 px-4 py-2 text-sm">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="font-bold">About Section (소개 섹션)</h3>
+            <p>회사/서비스에 대한 소개 영역, 미션, 비전, 팀 소개 등을 포함</p>
+        </div>
+    </div>
+
+    <!-- About 섹션 -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img src="https://via.placeholder.com/500x400" alt="About Image" class="rounded-lg shadow-lg">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl font-bold mb-6">회사 소개</h2>
+                    <p class="text-gray-600 mb-6">우리는 혁신적인 솔루션을 제공하는 기업입니다. 고객의 성공을 위해 최선을 다하고 있습니다.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center">
+                            <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            10년 이상의 경험
+                        </li>
+                        <!-- 추가 리스트 아이템들 -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials 섹션 설명 -->
+    <div class="bg-yellow-100 text-yellow-800 px-4 py-2 text-sm">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="font-bold">Testimonials Section (후기 섹션)</h3>
+            <p>사용자 후기나 추천사를 모아놓은 영역, 신뢰도 향상을 위해 실제 사용자 사진과 함께 표시, 슬라이더(캐러셀) 형태로 많이 구현됨</p>
+        </div>
+    </div>
+
+    <!-- Testimonials 섹션 -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">고객 후기</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60" alt="User" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">김철수</h4>
+                            <p class="text-gray-600">CEO, 테크컴퍼니</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"정말 훌륭한 서비스입니다. 우리 회사의 생산성이 크게 향상되었습니다."</p>
+                </div>
+                <!-- 추가 후기 카드들 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing 섹션 설명 -->
+    <div class="bg-yellow-100 text-yellow-800 px-4 py-2 text-sm">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="font-bold">Pricing Section (가격 섹션)</h3>
+            <p>가격 정책이나 요금제를 보여주는 영역, 보통 3-4개의 요금제를 카드 형태로 나란히 배치</p>
+        </div>
+    </div>
+
+    <!-- Pricing 섹션 -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">요금제</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Basic</h3>
+                    <p class="text-4xl font-bold mb-6">₩10,000<span class="text-gray-500 text-base">/월</span></p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            기본 기능
+                        </li>
+                        <!-- 추가 기능 리스트 -->
+                    </ul>
+                    <button class="w-full bg-blue-500 text-white py-2 rounded-lg">시작하기</button>
+                </div>
+                <!-- 추가 요금제 카드들 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact 섹션 설명 -->
+    <div class="bg-yellow-100 text-yellow-800 px-4 py-2 text-sm">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="font-bold">Contact Section (연락처 섹션)</h3>
+            <p>문의나 연락을 위한 정보를 모아둔 영역</p>
+        </div>
+    </div>
+
+    <!-- Contact 섹션 -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">문의하기</h2>
+            <div class="max-w-3xl mx-auto">
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 mb-2">이름</label>
+                        <input type="text" class="w-full px-4 py-2 border rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">이메일</label>
+                        <input type="email" class="w-full px-4 py-2 border rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">메시지</label>
+                        <textarea class="w-full px-4 py-2 border rounded-lg h-32"></textarea>
+                    </div>
+                    <button class="bg-blue-500 text-white px-6 py-2 rounded-lg">보내기</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer 섹션 설명 -->
+    <div class="bg-yellow-100 text-yellow-800 px-4 py-2 text-sm">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="font-bold">Footer (푸터)</h3>
+            <p>웹사이트의 최하단부, 저작권 정보, 소셜 미디어 링크, 사이트맵, 이용약관 등을 포함, 추가 네비게이션 메뉴를 포함하기도 함</p>
+        </div>
+    </div>
+
+    <!-- Footer 섹션 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">회사</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-gray-300">소개</a></li>
+                        <li><a href="#" class="hover:text-gray-300">채용</a></li>
+                        <li><a href="#" class="hover:text-gray-300">블로그</a></li>
+                    </ul>
+                </div>
+                <!-- 추가 Footer 컬럼들 -->
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p>© 2024 Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 뒤로가기 버튼 -->
+    <div class="fixed bottom-8 right-8">
+        <a href="index.html" 
+           class="bg-white shadow-lg rounded-full p-4 flex items-center text-gray-600 hover:text-gray-900">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+            <span class="ml-2">뒤로가기</span>
+        </a>
+    </div>
+</body>
+</html> 
+

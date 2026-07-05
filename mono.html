@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- Cursor UI 디자인 갤러리 정적 페이지 -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모노 디자인</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .mono-card {
+            background: #ffffff;
+            border: 1px solid #000000;
+            transition: all 0.2s ease;
+        }
+        .mono-card:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+        .mono-button {
+            background: #ffffff;
+            border: 1px solid #000000;
+            transition: all 0.2s ease;
+        }
+        .mono-button:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-white p-8">
+    <a href="index.html" class="mono-button fixed top-4 left-4 px-4 py-2">← 돌아가기</a>
+
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-4xl font-bold text-black text-center mb-12">모노 디자인</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="mono-card p-8">
+                    <div class="text-4xl mb-4">📄</div>
+                    <h2 class="text-xl font-bold mb-2">문서</h2>
+                    <p class="text-sm">문서 관리 시스템</p>
+                </div>
+                            <div class="mono-card p-8">
+                    <div class="text-4xl mb-4">⚙️</div>
+                    <h2 class="text-xl font-bold mb-2">설정</h2>
+                    <p class="text-sm">시스템 환경 설정</p>
+                </div>
+                            <div class="mono-card p-8">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h2 class="text-xl font-bold mb-2">통계</h2>
+                    <p class="text-sm">데이터 분석 및 통계</p>
+                </div>
+                    </div>
+
+        <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+                            <button class="mono-button p-4 font-medium">
+                    설정                </button>
+                            <button class="mono-button p-4 font-medium">
+                    저장                </button>
+                            <button class="mono-button p-4 font-medium">
+                    공유                </button>
+                            <button class="mono-button p-4 font-medium">
+                    삭제                </button>
+                    </div>
+
+        <nav class="mt-12 flex justify-center space-x-8">
+                            <a href="#" class="mono-button px-4 py-2">
+                    홈                </a>
+                            <a href="#" class="mono-button px-4 py-2">
+                    소개                </a>
+                            <a href="#" class="mono-button px-4 py-2">
+                    서비스                </a>
+                            <a href="#" class="mono-button px-4 py-2">
+                    문의                </a>
+                    </nav>
+    </div>
+</body>
+</html> 
+
