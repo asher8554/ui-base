@@ -142,6 +142,12 @@ textarea::placeholder {
     outline-offset: 3px;
 }
 
+:root.dark-mode .theme-toggle {
+    background: var(--theme-surface) !important;
+    color: var(--theme-text) !important;
+    border-color: var(--theme-control-border) !important;
+}
+
 :root.dark-mode body:has(.neumorphic),
 :root.dark-mode body:has(.skeuomorphic),
 :root.dark-mode body:has(.metal-button),
@@ -222,13 +228,25 @@ textarea::placeholder {
     color: #172033 !important;
 }
 
+:root.dark-mode .deco-card {
+    color: #172033 !important;
+}
+
 :root.dark-mode .deco-button {
     background: #b91c1c !important;
+}
+
+:root.dark-mode .kitsch-card {
+    color: #831843 !important;
 }
 
 :root.dark-mode .kitsch-card.text-pink-500,
 :root.dark-mode .kitsch-card .text-pink-500 {
     color: #be185d !important;
+}
+
+:root.dark-mode .kitsch-card .text-purple-600 {
+    color: #6b21a8 !important;
 }
 
 :root.dark-mode body:has(.brutal-card) .text-black {

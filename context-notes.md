@@ -28,3 +28,4 @@
 - Replaced public-facing tool-specific wording with generic AI wording.
 - Added `theme.css` and `theme.js`.
 - Theme default is dark. The floating theme button can switch to light mode and stores the choice in `localStorage`.
+- Dark-mode readability was audited across all 17 pages. Low-contrast custom styles were corrected in `theme.css` without changing page markup.

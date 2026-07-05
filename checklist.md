@@ -13,3 +13,4 @@
 - [x] Enable GitHub Pages and verify live URL.
 - [x] Remove tool-specific wording.
 - [x] Add default dark mode and theme toggle.
+- [x] Improve dark-mode text contrast across gallery pages.
