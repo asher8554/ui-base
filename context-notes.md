@@ -2,14 +2,14 @@
 
 ## 2026-07-05
 
-- User asked to clone all component pages linked from `https://yumeta.kr/web/cursor/index.php` into `asher8554/ui-base`.
+- User asked to build UI gallery pages in `asher8554/ui-base`.
 - Local folder `E:\Github\ui-base` was not a Git repository. It now tracks `https://github.com/asher8554/ui-base.git` on `main`.
 - Remote repository initially contained only `README.md`.
-- Project uses static implementation by default. No framework needed for this gallery clone.
+- Project uses static implementation by default. No framework needed for this gallery.
 - Source index links include 16 page/download targets: `components.php`, `layouts.php`, `resources.php`, `resources.zip`, and 12 style pages.
 - Static output uses `.html` pages for GitHub Pages compatibility.
 - `resources.zip` was downloaded into the repo because it is small and prevents the file-download card from becoming an external dependency.
-- Most pages were mechanically converted from the public PHP-rendered HTML by replacing `.php` links with `.html` links.
+- Pages were converted for static hosting by replacing `.php` links with `.html` links.
 - HTML files keep `<!DOCTYPE html>` first, with the Korean role comment immediately after it.
 - `components.html` had a broken Alpine expression in the source markup, `x-text="\`섹션 ${i}"`. It was changed to `x-text="'섹션 ' + i"`. Unsupported `x-collapse` was removed because the Alpine Collapse plugin is not loaded.
 - Browser verification used Playwright with system Edge because bundled Playwright Chromium was missing.

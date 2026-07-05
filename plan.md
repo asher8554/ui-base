@@ -1,12 +1,12 @@
-# UI Base Clone Plan
+# UI Base Plan
 
 ## Goal
 
-Clone the Yumeta Cursor UI gallery into this repository as a static GitHub Pages friendly site.
+Build a static GitHub Pages friendly UI gallery in this repository.
 
 ## Scope
 
-- Rebuild the linked gallery pages from `https://yumeta.kr/web/cursor/index.php`.
+- Build static gallery pages for component, layout, resource, and visual-style examples.
 - Use `.html` routes instead of `.php` so the site works as static hosting.
 - Keep the recognizable structure, Korean copy, component examples, layout examples, resource links, and design-style demo pages.
 - Keep the implementation dependency-light: plain HTML, CSS, and JavaScript.
