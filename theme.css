@@ -47,9 +47,26 @@ body.bg-gray-100 {
     background-color: #422006 !important;
 }
 
+:root.dark-mode .text-yellow-800 {
+    color: #fde68a !important;
+}
+
+:root.dark-mode .bg-blue-500 {
+    background-color: #2563eb !important;
+}
+
+:root.dark-mode .hover\:bg-blue-600:hover {
+    background-color: #1d4ed8 !important;
+}
+
+:root.dark-mode .bg-red-500 {
+    background-color: #dc2626 !important;
+}
+
 .text-gray-900,
 .text-gray-800,
-.text-gray-700 {
+.text-gray-700,
+.text-black {
     color: var(--theme-text) !important;
 }
 
@@ -123,4 +140,101 @@ textarea::placeholder {
 .theme-toggle:focus-visible {
     outline: 3px solid #60a5fa;
     outline-offset: 3px;
+}
+
+:root.dark-mode body:has(.neumorphic),
+:root.dark-mode body:has(.skeuomorphic),
+:root.dark-mode body:has(.metal-button),
+:root.dark-mode body:has(.mono-card),
+:root.dark-mode body:has(.minimal-card),
+:root.dark-mode body:has(.memphis-card),
+:root.dark-mode body:has(.bio-card) {
+    background: var(--theme-bg) !important;
+    color: var(--theme-text) !important;
+}
+
+:root.dark-mode .neumorphic,
+:root.dark-mode .mono-card,
+:root.dark-mode .mono-button,
+:root.dark-mode .minimal-card,
+:root.dark-mode .minimal-button,
+:root.dark-mode .memphis-card,
+:root.dark-mode .memphis-button {
+    background: var(--theme-surface) !important;
+    border-color: var(--theme-border) !important;
+    color: var(--theme-text) !important;
+}
+
+:root.dark-mode .neumorphic {
+    box-shadow:
+        8px 8px 18px rgba(0, 0, 0, 0.45),
+        -8px -8px 18px rgba(148, 163, 184, 0.08) !important;
+}
+
+:root.dark-mode .neumorphic:hover {
+    box-shadow:
+        inset 8px 8px 18px rgba(0, 0, 0, 0.42),
+        inset -8px -8px 18px rgba(148, 163, 184, 0.08) !important;
+}
+
+:root.dark-mode .skeuomorphic {
+    background: linear-gradient(to bottom, #1f2937 0%, #111827 100%) !important;
+    border-color: var(--theme-border) !important;
+    color: var(--theme-text) !important;
+    box-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+:root.dark-mode .metal-button {
+    background: linear-gradient(to bottom, #334155 0%, #1f2937 100%) !important;
+    border-color: #64748b !important;
+    color: var(--theme-text) !important;
+    text-shadow: none !important;
+}
+
+:root.dark-mode .mono-card:hover,
+:root.dark-mode .mono-button:hover,
+:root.dark-mode .minimal-button:hover {
+    background: #020617 !important;
+    color: var(--theme-text) !important;
+}
+
+:root.dark-mode .minimal-link::after {
+    background: var(--theme-text) !important;
+}
+
+:root.dark-mode .memphis-card::before {
+    opacity: 0.35;
+}
+
+:root.dark-mode .bio-card {
+    background: rgba(17, 24, 39, 0.82) !important;
+    color: var(--theme-text) !important;
+}
+
+:root.dark-mode .bio-shape {
+    opacity: 0.25 !important;
+}
+
+:root.dark-mode .deco-card .text-gray-800,
+:root.dark-mode .deco-card .text-gray-700 {
+    color: #172033 !important;
+}
+
+:root.dark-mode .deco-button {
+    background: #b91c1c !important;
+}
+
+:root.dark-mode .kitsch-card.text-pink-500,
+:root.dark-mode .kitsch-card .text-pink-500 {
+    color: #be185d !important;
+}
+
+:root.dark-mode body:has(.brutal-card) .text-black {
+    color: #000000 !important;
+}
+
+:root.dark-mode .brutal-card {
+    color: #000000 !important;
 }
