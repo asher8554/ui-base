@@ -14,3 +14,5 @@
 - [x] Remove tool-specific wording.
 - [x] Add default dark mode and theme toggle.
 - [x] Improve dark-mode text contrast across gallery pages.
+- [x] Run published-site browser QA across routes, interactions, and mobile layout.
+- [x] Record reproducible findings and verification evidence.

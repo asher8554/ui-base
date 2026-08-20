@@ -1,0 +1,21 @@
+{
+  "date": "2026-08-21",
+  "url": "https://asher8554.github.io/ui-base/",
+  "healthScore": 90,
+  "issues": [
+    { "id": "ISSUE-001", "title": "External placeholder images are broken", "severity": "medium", "category": "visual" },
+    { "id": "ISSUE-002", "title": "Mobile drawer permits background interaction", "severity": "medium", "category": "ux" },
+    { "id": "ISSUE-003", "title": "Tailwind CDN production warning", "severity": "low", "category": "performance" },
+    { "id": "ISSUE-004", "title": "Icon controls lack descriptive accessible names", "severity": "low", "category": "accessibility" }
+  ],
+  "categoryScores": {
+    "console": 70,
+    "links": 100,
+    "visual": 92,
+    "functional": 92,
+    "ux": 92,
+    "performance": 97,
+    "content": 92,
+    "accessibility": 94
+  }
+}

@@ -29,3 +29,9 @@
 - Added `theme.css` and `theme.js`.
 - Theme default is dark. The floating theme button can switch to light mode and stores the choice in `localStorage`.
 - Dark-mode readability was audited across all 17 pages. Low-contrast custom styles were corrected in `theme.css` without changing page markup.
+
+## 2026-08-21 Browser QA
+
+- User requested a fresh end-to-end inspection of the published GitHub Pages site after recent toast and hamburger-menu changes.
+- QA scope is published routes, component interactions, responsive layout, and browser console health. This pass is report-only until the user requests fixes.
+- Verified all 17 published routes and the main component state changes with browser automation. Findings are stored in `.gstack/qa-reports/qa-report-asher8554-github-io-2026-08-21.md`.

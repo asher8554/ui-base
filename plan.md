@@ -25,3 +25,10 @@ Build a static GitHub Pages friendly UI gallery in this repository.
 - Run a local static server.
 - Smoke test desktop and mobile in a browser.
 - Verify key interactions: carousel, modal, accordion, dialog, toast, dropdown, sidebar, tabs, rating, file upload.
+
+## 2026-08-21 Browser QA
+
+- Verify: every published route returns HTTP 200 and is reachable from the index.
+- Verify: component interactions work in desktop and mobile viewports.
+- Verify: no console errors are caused by the page itself.
+- Report: reproducible defects with browser evidence. Do not change product behavior during this QA pass.
