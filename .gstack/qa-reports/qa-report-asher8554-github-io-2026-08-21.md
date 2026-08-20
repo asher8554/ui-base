@@ -14,7 +14,7 @@
 - Reproduction. Open `components.html` or `layouts.html` in a browser.
 - Expected. Card and layout example images render.
 - Actual. The browser requests `via.placeholder.com`; the request closes and broken-image alt text is shown. `components.html` logs one error and `layouts.html` logs three.
-- Evidence. `.playwright-cli/page-2026-08-20T22-27-17-297Z.png` and `.playwright-cli/page-2026-08-20T22-32-26-289Z.png`.
+- Evidence. `screenshots/issue-001-components-broken-image.png` and `screenshots/issue-001-layouts-broken-images.png`.
 
 ### ISSUE-002. The mobile hamburger drawer does not prevent background interaction.
 
@@ -23,7 +23,7 @@
 - Reproduction. At 375px wide, open the hamburger menu and press the visible theme-toggle button in the remaining right-side strip.
 - Expected. An open navigation drawer prevents actions behind it until it closes.
 - Actual. The theme changes while the drawer remains open.
-- Evidence. `.playwright-cli/page-2026-08-20T22-28-53-796Z.png` and `.playwright-cli/page-2026-08-20T22-29-26-520Z.png`.
+- Evidence. `screenshots/issue-002-drawer-open.png` and `screenshots/issue-002-background-theme-toggle.png`.
 
 ### ISSUE-003. Production pages log the Tailwind CDN warning.
 
