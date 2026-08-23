@@ -7,6 +7,7 @@
 - styles.html은 자체 light-mode 오버라이드(.style-card 흰 카드 등)를 가지며 theme.css/theme.js 토글과 호환. 이전 타일 미커밋 작업은 이 구조로 대체된 것(삭제 결정은 사용자 요청 기준).
 - 검증: `verify-styles.js` 19항목 전부 통과(13카드/링크 200/라이트모드/모바일 1열/인덱스 연결 내비게이션). 스크린샷: `uibase-verify\shots3\`.
 - 커밋/푸시 전 상태. styles.html은 신규 untracked 파일.
+- 2026-08-24 푸시 완료: `3cfec7b 전 하위페이지 QA 결함 수정`, `06e892c 디자인 스타일 갤러리 styles.html 추가 후 index에서 연결` → origin/main. 라이브 확인: styles.html 200, index styles 링크 있음, tile 잔여 없음, maximalism gold 수정 반영. 단일 브랜치·단일 워크트리라 별도 머지/prune 대상 없음.
 
 ## 2026-08-24 전 하위페이지 재검증 및 수정
 
