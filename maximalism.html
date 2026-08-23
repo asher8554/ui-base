@@ -32,6 +32,13 @@
             border-width: 4px;
             border-style: solid;
         }
+        /* Tailwind 기본 팔레트에는 gold가 없으므로 직접 정의한다 */
+        .text-gold {
+            color: #e7c66b;
+        }
+        .gold-divider {
+            background: linear-gradient(90deg, #e7c66b, #ffffff, #e7c66b);
+        }
     </style>
     <link rel="stylesheet" href="theme.css">
     <script defer src="theme.js"></script>
@@ -51,19 +58,19 @@
                     <div class="text-6xl mb-4">📄</div>
                     <h2 class="text-2xl font-bold text-gold mb-4">문서</h2>
                     <p class="text-white/80">문서 관리 시스템</p>
-                    <div class="mt-4 h-1 bg-gradient-to-r from-gold via-white to-gold"></div>
+                    <div class="mt-4 h-1 gold-divider"></div>
                 </div>
                             <div class="maximal-card p-8 rounded-lg transform hover:scale-105 transition-transform">
                     <div class="text-6xl mb-4">⚙️</div>
                     <h2 class="text-2xl font-bold text-gold mb-4">설정</h2>
                     <p class="text-white/80">시스템 환경 설정</p>
-                    <div class="mt-4 h-1 bg-gradient-to-r from-gold via-white to-gold"></div>
+                    <div class="mt-4 h-1 gold-divider"></div>
                 </div>
                             <div class="maximal-card p-8 rounded-lg transform hover:scale-105 transition-transform">
                     <div class="text-6xl mb-4">📊</div>
                     <h2 class="text-2xl font-bold text-gold mb-4">통계</h2>
                     <p class="text-white/80">데이터 분석 및 통계</p>
-                    <div class="mt-4 h-1 bg-gradient-to-r from-gold via-white to-gold"></div>
+                    <div class="mt-4 h-1 gold-divider"></div>
                 </div>
                     </div>
 

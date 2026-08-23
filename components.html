@@ -597,9 +597,9 @@
                     <div class="mt-4 p-4 bg-gray-50 rounded-lg">
                                                     <div x-data="{ files: null }"
                                  class="relative border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
-                                <input type="file" multiple
+                                    <input type="file" multiple
                                        class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                                       @change="files = $event.target.files">
+                                       @change="files = $event.target.files.length ? $event.target.files : null">
                                 <div x-show="!files">
                                     <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
                                         <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -622,20 +622,22 @@
                     
                     <!-- 각 컴포넌트별 데모 -->
                     <div class="mt-4 p-4 bg-gray-50 rounded-lg">
-                                                    <div x-data="{ search: '', suggestions: ['검색어 추천 1', '검색어 추천 2', '검색어 추천 3'] }" class="relative">
+                                                    <div x-data="{ search: '', suggestOpen: true, suggestions: ['검색어 추천 1', '검색어 추천 2', '검색어 추천 3'] }" class="relative">
                                 <div class="relative">
                                     <input type="text" 
                                            x-model="search"
+                                           @input="suggestOpen = true"
                                            placeholder="검색어를 입력하세요"
                                            class="w-full pl-10 pr-4 py-2 border rounded-lg">
                                     <svg class="absolute left-3 top-2.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                     </svg>
                                 </div>
-                                <div x-show="search.length > 0" 
-                                     class="absolute w-full mt-1 bg-white border rounded-lg shadow-lg">
+                                <div x-show="search.length > 0 && suggestOpen" 
+                                     x-cloak
+                                     class="absolute w-full mt-1 bg-white border rounded-lg shadow-lg z-10">
                                     <template x-for="suggestion in suggestions">
-                                        <div class="px-4 py-2 hover:bg-gray-100 cursor-pointer" x-text="suggestion"></div>
+                                        <div @click="search = suggestion; suggestOpen = false" class="px-4 py-2 hover:bg-gray-100 cursor-pointer" x-text="suggestion"></div>
                                     </template>
                                 </div>
                             </div>
