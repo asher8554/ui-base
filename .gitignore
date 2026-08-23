@@ -1,0 +1,7 @@
+# 브라우저 QA 임시 산출물
+.playwright-cli/
+
+# 로컬 캐시 / OS 파일
+__pycache__/
+Thumbs.db
+.DS_Store

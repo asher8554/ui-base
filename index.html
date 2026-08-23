@@ -8,252 +8,219 @@
     <title>AI를 위한 UI 디자인 갤러리 / 파일 다운로드</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .design-card {
-            transition: all 0.3s ease;
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(60rem 60rem at 120% -10%, rgba(168, 85, 247, 0.32), transparent 60%),
+                radial-gradient(50rem 50rem at -20% 25%, rgba(56, 189, 248, 0.26), transparent 55%),
+                radial-gradient(45rem 45rem at 50% 120%, rgba(244, 114, 182, 0.28), transparent 60%),
+                linear-gradient(160deg, #0b1020 0%, #111827 55%, #17103a 100%);
+            background-attachment: fixed;
         }
-        .design-card:hover {
-            transform: translateY(-10px);
+
+        :root.light-mode body {
+            background:
+                radial-gradient(60rem 60rem at 120% -10%, rgba(192, 132, 252, 0.35), transparent 60%),
+                radial-gradient(50rem 50rem at -20% 25%, rgba(125, 211, 252, 0.32), transparent 55%),
+                radial-gradient(45rem 45rem at 50% 120%, rgba(249, 168, 212, 0.3), transparent 60%),
+                linear-gradient(160deg, #eef2ff 0%, #f8fafc 55%, #fdf2f8 100%);
+            background-attachment: fixed;
+        }
+
+        .glass {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 8px 32px rgba(2, 6, 23, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+        }
+
+        :root.light-mode .glass {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0.38));
+            border-color: rgba(255, 255, 255, 0.75);
+            box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+        }
+
+        .glass-card {
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 255, 255, 0.45);
+            box-shadow: 0 18px 48px rgba(2, 6, 23, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        }
+
+        :root.light-mode .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 18px 48px rgba(15, 23, 42, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        /* 라이트모드에서 흰 유리 위 흰 글자가 되지 않도록 본문 색을 어둡게 바꾼다 */
+        :root.light-mode body {
+            color: #1e293b;
+        }
+
+        :root.light-mode .text-slate-300 {
+            color: #475569 !important;
+        }
+
+        :root.light-mode .text-slate-200 {
+            color: #334155 !important;
+        }
+
+        :root.light-mode .text-slate-400 {
+            color: #64748b !important;
+        }
+
+        .blob {
+            position: fixed;
+            border-radius: 9999px;
+            filter: blur(70px);
+            opacity: 0.55;
+            pointer-events: none;
+            animation: blob-float 14s ease-in-out infinite alternate;
+        }
+
+        @keyframes blob-float {
+            from { transform: translate(0, 0) scale(1); }
+            to   { transform: translate(3rem, -2rem) scale(1.12); }
         }
     </style>
     <link rel="stylesheet" href="theme.css">
     <script defer src="theme.js"></script>
 </head>
-<body class="min-h-screen bg-gray-100 p-8">
-    <div class="max-w-7xl mx-auto">
-        <h1 class="text-3xl font-bold text-center mb-12 mt-8 flex items-center justify-center gap-3">
-            <img src="assets/ui-icon.png" alt="" class="w-12 h-12 rounded-xl shadow-md">
-            <span>AI를 위한 UI 디자인 갤러리</span>
-        </h1>
-        
+<body class="min-h-screen p-6 sm:p-8 text-slate-100">
+    <div class="blob w-72 h-72 top-[-4rem] left-[-4rem]" style="background:#7c3aed;"></div>
+    <div class="blob w-80 h-80 bottom-[-6rem] right-[-5rem]" style="background:#ec4899; animation-delay:-5s;"></div>
+    <div class="blob w-64 h-64 top-[40%] right-[15%]" style="background:#0ea5e9; animation-delay:-9s;"></div>
 
-        <!-- UI 컴포넌트 갤러리로 가는 새로운 섹션 추가 -->
-        <div class="mb-16">
-            <a href="components.html" 
-               class="block bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                <div class="p-8">
-                    <h2 class="text-3xl font-bold text-white mb-4">UI 컴포넌트 갤러리</h2>
-                    <p class="text-white/90 text-lg mb-6">
-                        캐러셀, 모달, 아코디언 등 다양한 UI 컴포넌트를 직접 체험해보세요.
-                    </p>
-                    <div class="inline-block bg-white/20 px-6 py-3 rounded-full text-white">
-                        컴포넌트 구경하기 →
-                    </div>
-                </div>
+    <div class="relative max-w-7xl mx-auto">
+        <header class="glass rounded-3xl px-8 py-10 mb-10 text-center">
+            <img src="assets/ui-icon.png" alt="" class="w-14 h-14 rounded-2xl mx-auto mb-5 shadow-lg">
+            <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">AI를 위한 UI 디자인 갤러리</h1>
+            <p class="mt-3 text-slate-300 text-lg">컴포넌트, 레이아웃, 리소스와 13가지 디자인 스타일을 한 곳에서.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <a href="components.html"
+               class="glass glass-card block rounded-2xl p-8">
+                <span class="inline-flex w-12 h-12 items-center justify-center rounded-xl text-2xl mb-4"
+                      style="background:linear-gradient(135deg,#6366f1,#a855f7);">🧩</span>
+                <h2 class="text-2xl font-bold mb-2">UI 컴포넌트 갤러리</h2>
+                <p class="text-slate-300 mb-5">캐러셀, 모달, 아코디언 등 다양한 UI 컴포넌트를 직접 체험해보세요.</p>
+                <span class="glass inline-block rounded-full px-5 py-2 text-sm font-medium">컴포넌트 구경하기 →</span>
+            </a>
+            <a href="layouts.html"
+               class="glass glass-card block rounded-2xl p-8">
+                <span class="inline-flex w-12 h-12 items-center justify-center rounded-xl text-2xl mb-4"
+                      style="background:linear-gradient(135deg,#10b981,#14b8a6);">📐</span>
+                <h2 class="text-2xl font-bold mb-2">레이아웃 갤러리</h2>
+                <p class="text-slate-300 mb-5">네비게이션 바, 히어로 섹션, 특징 섹션 등 다양한 웹 레이아웃을 살펴보세요.</p>
+                <span class="glass inline-block rounded-full px-5 py-2 text-sm font-medium">레이아웃 구경하기 →</span>
+            </a>
+            <a href="resources.html"
+               class="glass glass-card block rounded-2xl p-8">
+                <span class="inline-flex w-12 h-12 items-center justify-center rounded-xl text-2xl mb-4"
+                      style="background:linear-gradient(135deg,#a855f7,#ec4899);">🛠️</span>
+                <h2 class="text-2xl font-bold mb-2">UI 개발 리소스</h2>
+                <p class="text-slate-300 mb-5">CSS 프레임워크, 아이콘 라이브러리, 플레이스홀더 등 웹 개발에 유용한 리소스를 확인해보세요.</p>
+                <span class="glass inline-block rounded-full px-5 py-2 text-sm font-medium">리소스 살펴보기 →</span>
+            </a>
+            <a href="resources.zip" download
+               class="glass glass-card block rounded-2xl p-8">
+                <span class="inline-flex w-12 h-12 items-center justify-center rounded-xl text-2xl mb-4"
+                      style="background:linear-gradient(135deg,#f59e0b,#f97316);">📦</span>
+                <h2 class="text-2xl font-bold mb-2">책 예제파일</h2>
+                <p class="text-slate-300 mb-5">AI 트렌드 및 활용백과에 있는 예제파일을 확인해보세요.</p>
+                <span class="glass inline-block rounded-full px-5 py-2 text-sm font-medium">파일 다운로드 →</span>
             </a>
         </div>
 
-        <!-- UI 컴포넌트 갤러리 섹션 다음에 추가 -->
-        <div class="mb-16">
-            <a href="layouts.html" 
-               class="block bg-gradient-to-r from-green-500 to-teal-500 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                <div class="p-8">
-                    <h2 class="text-3xl font-bold text-white mb-4">레이아웃 갤러리</h2>
-                    <p class="text-white/90 text-lg mb-6">
-                        네비게이션 바, 히어로 섹션, 특징 섹션 등 다양한 웹 레이아웃을 살펴보세요.
-                    </p>
-                    <div class="inline-block bg-white/20 px-6 py-3 rounded-full text-white">
-                        레이아웃 구경하기 →
-                    </div>
-                </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="glassmorphism.html" class="glass glass-card block rounded-2xl p-7">
+                <span class="block w-10 h-10 rounded-full mb-4" style="background:linear-gradient(135deg,#a855f7,#ec4899);"></span>
+                <h2 class="text-xl font-bold mb-2">글래스모피즘</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">투명하고 블러 효과가 특징인 현대적 디자인</p>
+                <span class="mt-4 inline-block text-sm text-slate-200">자세히 보기 →</span>
+            </a>
+            <a href="neumorphism.html" class="glass glass-card block rounded-2xl p-7">
+                <span class="block w-10 h-10 rounded-full mb-4" style="background:linear-gradient(135deg,#cbd5e1,#64748b);"></span>
+                <h2 class="text-xl font-bold mb-2">뉴모피즘</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">부드러운 그림자로 입체감을 표현하는 디자인</p>
+                <span class="mt-4 inline-block text-sm text-slate-200">자세히 보기 →</span>
+            </a>
+            <a href="skeuomorphism.html" class="glass glass-card block rounded-2xl p-7">
+                <span class="block w-10 h-10 rounded-full mb-4" style="background:linear-gradient(135deg,#d97706,#78350f);"></span>
+                <h2 class="text-xl font-bold mb-2">스큐모피즘</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">실제 물체를 모방한 사실적인 디자인</p>
+                <span class="mt-4 inline-block text-sm text-slate-200">자세히 보기 →</span>
+            </a>
+            <a href="mono.html" class="glass glass-card block rounded-2xl p-7">
+                <span class="block w-10 h-10 rounded-full mb-4" style="background:linear-gradient(135deg,#374151,#000000);"></span>
+                <h2 class="text-xl font-bold mb-2">모노 디자인</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">흑백의 미니멀한 디자인</p>
+                <span class="mt-4 inline-block text-sm text-slate-200">자세히 보기 →</span>
+            </a>
+            <a href="flat.html" class="glass glass-card block rounded-2xl p-7">
+                <span class="block w-10 h-10 rounded-full mb-4" style="background:linear-gradient(135deg,#3b82f6,#2563eb);"></span>
+                <h2 class="text-xl font-bold mb-2">플랫 디자인</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">단순하고 깔끔한 2D 디자인</p>
+                <span class="mt-4 inline-block text-sm text-slate-200">자세히 보기 →</span>
+            </a>
+            <a href="brutalism.html" class="glass glass-card block rounded-2xl p-7">
+                <span class="block w-10 h-10 rounded-full mb-4" style="background:linear-gradient(135deg,#facc15,#ef4444);"></span>
+                <h2 class="text-xl font-bold mb-2">브루탈리즘</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">거칠고 과감한 실험적 디자인</p>
+                <span class="mt-4 inline-block text-sm text-slate-200">자세히 보기 →</span>
+            </a>
+            <a href="kitsch.html" class="glass glass-card block rounded-2xl p-7">
+                <span class="block w-10 h-10 rounded-full mb-4" style="background:linear-gradient(135deg,#ec4899,#eab308);"></span>
+                <h2 class="text-xl font-bold mb-2">키치 디자인</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">화려하고 과장된 팝아트 스타일</p>
+                <span class="mt-4 inline-block text-sm text-slate-200">자세히 보기 →</span>
+            </a>
+            <a href="maximalism.html" class="glass glass-card block rounded-2xl p-7">
+                <span class="block w-10 h-10 rounded-full mb-4" style="background:linear-gradient(135deg,#9333ea,#dc2626);"></span>
+                <h2 class="text-xl font-bold mb-2">맥시멀리즘</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">풍부하고 장식적인 과감한 디자인</p>
+                <span class="mt-4 inline-block text-sm text-slate-200">자세히 보기 →</span>
+            </a>
+            <a href="retrofuturism.html" class="glass glass-card block rounded-2xl p-7">
+                <span class="block w-10 h-10 rounded-full mb-4" style="background:linear-gradient(135deg,#06b6d4,#8b5cf6);"></span>
+                <h2 class="text-xl font-bold mb-2">레트로퓨처리즘</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">복고적 미래 상상 디자인</p>
+                <span class="mt-4 inline-block text-sm text-slate-200">자세히 보기 →</span>
+            </a>
+            <a href="biomorphic.html" class="glass glass-card block rounded-2xl p-7">
+                <span class="block w-10 h-10 rounded-full mb-4" style="background:linear-gradient(135deg,#34d399,#60a5fa);"></span>
+                <h2 class="text-xl font-bold mb-2">바이오모픽</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">자연의 유기적 형태를 모방한 디자인</p>
+                <span class="mt-4 inline-block text-sm text-slate-200">자세히 보기 →</span>
+            </a>
+            <a href="memphis.html" class="glass glass-card block rounded-2xl p-7">
+                <span class="block w-10 h-10 rounded-full mb-4" style="background:linear-gradient(135deg,#fbbf24,#ec4899);"></span>
+                <h2 class="text-xl font-bold mb-2">멤피스</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">80년대 팝아트와 포스트모더니즘 스타일</p>
+                <span class="mt-4 inline-block text-sm text-slate-200">자세히 보기 →</span>
+            </a>
+            <a href="artdeco.html" class="glass glass-card block rounded-2xl p-7">
+                <span class="block w-10 h-10 rounded-full mb-4" style="background:linear-gradient(135deg,#d4af37,#111827);"></span>
+                <h2 class="text-xl font-bold mb-2">아르데코</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">기하학적 패턴의 고급스러운 디자인</p>
+                <span class="mt-4 inline-block text-sm text-slate-200">자세히 보기 →</span>
+            </a>
+            <a href="minimalism.html" class="glass glass-card block rounded-2xl p-7">
+                <span class="block w-10 h-10 rounded-full mb-4" style="background:linear-gradient(135deg,#a1a1aa,#52525b);"></span>
+                <h2 class="text-xl font-bold mb-2">미니멀리즘</h2>
+                <p class="text-slate-300 text-sm leading-relaxed">불필요한 요소를 제거한 극도로 단순한 디자인</p>
+                <span class="mt-4 inline-block text-sm text-slate-200">자세히 보기 →</span>
             </a>
         </div>
 
-        <!-- 레이아웃 갤러리 다음에 추가 -->
-        <div class="mb-16">
-            <a href="resources.html" 
-               class="block bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                <div class="p-8">
-                    <h2 class="text-3xl font-bold text-white mb-4">UI  개발 리소스</h2>
-                    <p class="text-white/90 text-lg mb-6">
-                        CSS 프레임워크, 아이콘 라이브러리, 플레이스홀더 등 웹 개발에 유용한 리소스를 확인해보세요.
-                    </p>
-                    <div class="inline-block bg-white/20 px-6 py-3 rounded-full text-white">
-                        리소스 살펴보기 →
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="mb-16">
-            <a href="resources.zip" 
-               class="block bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                <div class="p-8">
-                    <h2 class="text-3xl font-bold text-white mb-4">책 예제파일</h2>
-                    <p class="text-white/90 text-lg mb-6">
-                        AI 트렌드 및 활용백과에 있는 예제파일을 확인해보세요.
-                    </p>
-                    <div class="inline-block bg-white/20 px-6 py-3 rounded-full text-white">
-                        파일 다운로드 →
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <a href="glassmorphism.html" 
-                   class="design-card block rounded-xl overflow-hidden">
-                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-8 h-full">
-                        <h2 class="text-2xl font-bold text-white mb-2">
-                            글래스모피즘                        </h2>
-                        <p class="text-white/80">
-                            투명하고 블러 효과가 특징인 현대적 디자인                        </p>
-                        <div class="mt-4 inline-block bg-white/20 px-4 py-2 rounded-full text-white text-sm">
-                            자세히 보기 →
-                        </div>
-                    </div>
-                </a>
-                            <a href="neumorphism.html" 
-                   class="design-card block rounded-xl overflow-hidden">
-                    <div class="bg-gradient-to-r from-slate-300 to-slate-400 p-8 h-full">
-                        <h2 class="text-2xl font-bold text-white mb-2">
-                            뉴모피즘                        </h2>
-                        <p class="text-white/80">
-                            부드러운 그림자로 입체감을 표현하는 디자인                        </p>
-                        <div class="mt-4 inline-block bg-white/20 px-4 py-2 rounded-full text-white text-sm">
-                            자세히 보기 →
-                        </div>
-                    </div>
-                </a>
-                            <a href="skeuomorphism.html" 
-                   class="design-card block rounded-xl overflow-hidden">
-                    <div class="bg-gradient-to-r from-amber-700 to-amber-900 p-8 h-full">
-                        <h2 class="text-2xl font-bold text-white mb-2">
-                            스큐모피즘                        </h2>
-                        <p class="text-white/80">
-                            실제 물체를 모방한 사실적인 디자인                        </p>
-                        <div class="mt-4 inline-block bg-white/20 px-4 py-2 rounded-full text-white text-sm">
-                            자세히 보기 →
-                        </div>
-                    </div>
-                </a>
-                            <a href="mono.html" 
-                   class="design-card block rounded-xl overflow-hidden">
-                    <div class="bg-gradient-to-r from-gray-900 to-black p-8 h-full">
-                        <h2 class="text-2xl font-bold text-white mb-2">
-                            모노 디자인                        </h2>
-                        <p class="text-white/80">
-                            흑백의 미니멀한 디자인                        </p>
-                        <div class="mt-4 inline-block bg-white/20 px-4 py-2 rounded-full text-white text-sm">
-                            자세히 보기 →
-                        </div>
-                    </div>
-                </a>
-                            <a href="flat.html" 
-                   class="design-card block rounded-xl overflow-hidden">
-                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-8 h-full">
-                        <h2 class="text-2xl font-bold text-white mb-2">
-                            플랫 디자인                        </h2>
-                        <p class="text-white/80">
-                            단순하고 깔끔한 2D 디자인                        </p>
-                        <div class="mt-4 inline-block bg-white/20 px-4 py-2 rounded-full text-white text-sm">
-                            자세히 보기 →
-                        </div>
-                    </div>
-                </a>
-                            <a href="brutalism.html" 
-                   class="design-card block rounded-xl overflow-hidden">
-                    <div class="bg-gradient-to-r from-yellow-400 to-red-500 p-8 h-full">
-                        <h2 class="text-2xl font-bold text-white mb-2">
-                            브루탈리즘                        </h2>
-                        <p class="text-white/80">
-                            거칠고 과감한 실험적 디자인                        </p>
-                        <div class="mt-4 inline-block bg-white/20 px-4 py-2 rounded-full text-white text-sm">
-                            자세히 보기 →
-                        </div>
-                    </div>
-                </a>
-                            <a href="kitsch.html" 
-                   class="design-card block rounded-xl overflow-hidden">
-                    <div class="bg-gradient-to-r from-pink-500 to-yellow-500 p-8 h-full">
-                        <h2 class="text-2xl font-bold text-white mb-2">
-                            키치 디자인                        </h2>
-                        <p class="text-white/80">
-                            화려하고 과장된 팝아트 스타일                        </p>
-                        <div class="mt-4 inline-block bg-white/20 px-4 py-2 rounded-full text-white text-sm">
-                            자세히 보기 →
-                        </div>
-                    </div>
-                </a>
-                            <a href="maximalism.html" 
-                   class="design-card block rounded-xl overflow-hidden">
-                    <div class="bg-gradient-to-r from-purple-600 to-red-600 p-8 h-full">
-                        <h2 class="text-2xl font-bold text-white mb-2">
-                            맥시멀리즘                        </h2>
-                        <p class="text-white/80">
-                            풍부하고 장식적인 과감한 디자인                        </p>
-                        <div class="mt-4 inline-block bg-white/20 px-4 py-2 rounded-full text-white text-sm">
-                            자세히 보기 →
-                        </div>
-                    </div>
-                </a>
-                            <a href="retrofuturism.html" 
-                   class="design-card block rounded-xl overflow-hidden">
-                    <div class="bg-gradient-to-r from-cyan-500 to-purple-500 p-8 h-full">
-                        <h2 class="text-2xl font-bold text-white mb-2">
-                            레트로퓨처리즘                        </h2>
-                        <p class="text-white/80">
-                            복고적 미래 상상 디자인                        </p>
-                        <div class="mt-4 inline-block bg-white/20 px-4 py-2 rounded-full text-white text-sm">
-                            자세히 보기 →
-                        </div>
-                    </div>
-                </a>
-                            <a href="biomorphic.html" 
-                   class="design-card block rounded-xl overflow-hidden">
-                    <div class="bg-gradient-to-r from-green-400 to-blue-400 p-8 h-full">
-                        <h2 class="text-2xl font-bold text-white mb-2">
-                            바이오모픽                        </h2>
-                        <p class="text-white/80">
-                            자연의 유기적 형태를 모방한 디자인                        </p>
-                        <div class="mt-4 inline-block bg-white/20 px-4 py-2 rounded-full text-white text-sm">
-                            자세히 보기 →
-                        </div>
-                    </div>
-                </a>
-                            <a href="memphis.html" 
-                   class="design-card block rounded-xl overflow-hidden">
-                    <div class="bg-gradient-to-r from-yellow-400 to-pink-500 p-8 h-full">
-                        <h2 class="text-2xl font-bold text-white mb-2">
-                            멤피스                        </h2>
-                        <p class="text-white/80">
-                            80년대 팝아트와 포스트모더니즘 스타일                        </p>
-                        <div class="mt-4 inline-block bg-white/20 px-4 py-2 rounded-full text-white text-sm">
-                            자세히 보기 →
-                        </div>
-                    </div>
-                </a>
-                            <a href="artdeco.html" 
-                   class="design-card block rounded-xl overflow-hidden">
-                    <div class="bg-gradient-to-r from-yellow-500 to-gray-900 p-8 h-full">
-                        <h2 class="text-2xl font-bold text-white mb-2">
-                            아르데코                        </h2>
-                        <p class="text-white/80">
-                            기하학적 패턴의 고급스러운 디자인                        </p>
-                        <div class="mt-4 inline-block bg-white/20 px-4 py-2 rounded-full text-white text-sm">
-                            자세히 보기 →
-                        </div>
-                    </div>
-                </a>
-                            <a href="minimalism.html" 
-                   class="design-card block rounded-xl overflow-hidden">
-                    <div class="bg-gradient-to-r from-zinc-400 to-zinc-600 p-8 h-full">
-                        <h2 class="text-2xl font-bold text-white mb-2">
-                            미니멀리즘                        </h2>
-                        <p class="text-white/80">
-                            불필요한 요소를 제거한 극도로 단순한 디자인                        </p>
-                        <div class="mt-4 inline-block bg-white/20 px-4 py-2 rounded-full text-white text-sm">
-                            자세히 보기 →
-                        </div>
-                    </div>
-                </a>
-                    </div>
-
-        <footer class="mt-16 text-center text-gray-600">
+        <footer class="mt-12 pb-6 text-center text-slate-400">
             <p>© 2024 UI Base</p>
         </footer>
     </div>
 </body>
-</html> 
-
-
-
+</html>

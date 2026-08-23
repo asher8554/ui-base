@@ -1,4 +1,15 @@
 /* 전체 페이지의 기본 다크모드와 테마 토글 스타일 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+
+/* Pretendard는 html 레벨에서 상속시킨다. 스타일 데모 페이지가 body에 지정한
+   고유 폰트(아르데코, 브루탈리즘 등)는 직접 규칙이 우선하므로 그대로 유지된다.
+   !important는 Tailwind CDN이 나중에 주입하는 html 기본 폰트 규칙을 이기기 위한 것. */
+html {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+        system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+        "Noto Sans KR", "Malgun Gothic", sans-serif !important;
+}
+
 :root,
 :root.dark-mode {
     color-scheme: dark;
@@ -11,6 +22,10 @@
     --theme-border: #334155;
     --theme-control: #0b1220;
     --theme-control-border: #475569;
+    --glass-bg: rgba(17, 24, 39, 0.55);
+    --glass-bg-strong: rgba(17, 24, 39, 0.72);
+    --glass-highlight: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(148, 163, 184, 0.24);
 }
 
 :root.light-mode {
@@ -24,19 +39,50 @@
     --theme-border: #e5e7eb;
     --theme-control: #ffffff;
     --theme-control-border: #d1d5db;
+    --glass-bg: rgba(255, 255, 255, 0.62);
+    --glass-bg-strong: rgba(255, 255, 255, 0.78);
+    --glass-highlight: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.7);
 }
 
+/* 기본 셸 페이지(components/layouts/resources 등) 배경에 은은한 색 원을 깔아
+   글래스 블러가 빛나게 한다. */
 body.bg-gray-50,
 body.bg-gray-100 {
-    background: var(--theme-bg) !important;
+    background:
+        radial-gradient(55rem 55rem at 115% -5%, rgba(139, 92, 246, 0.16), transparent 60%),
+        radial-gradient(45rem 45rem at -15% 15%, rgba(56, 189, 248, 0.13), transparent 55%),
+        radial-gradient(40rem 40rem at 50% 115%, rgba(244, 114, 182, 0.12), transparent 60%),
+        linear-gradient(165deg, #0b1120 0%, #0f172a 55%, #17103a 100%) !important;
+    background-attachment: fixed !important;
     color: var(--theme-text) !important;
 }
 
+:root.light-mode body.bg-gray-50,
+:root.light-mode body.bg-gray-100 {
+    background:
+        radial-gradient(55rem 55rem at 115% -5%, rgba(167, 139, 250, 0.22), transparent 60%),
+        radial-gradient(45rem 45rem at -15% 15%, rgba(125, 211, 252, 0.2), transparent 55%),
+        radial-gradient(40rem 40rem at 50% 115%, rgba(249, 168, 212, 0.18), transparent 60%),
+        linear-gradient(165deg, #eef2ff 0%, #f8fafc 55%, #fdf2f8 100%) !important;
+}
+
+/* 카드·헤더 등 흰 서피스를 반투명 글래스 톤으로 바꾼다.
+   주의: 카드에 backdrop-filter를 걸면 stacking context와 fixed 기준점이 생겨
+   데모 안의 모달·드로어 같은 fixed 오버레이가 깨진다. 그래서 블러는
+   body 직속 헤더에만 적용한다. */
 .bg-white,
 .bg-gray-50,
 .bg-gray-100 {
-    background-color: var(--theme-surface) !important;
+    background-color: var(--glass-bg) !important;
     color: var(--theme-text) !important;
+    box-shadow: inset 0 1px 0 var(--glass-highlight);
+}
+
+header.bg-white {
+    background-color: var(--glass-bg-strong) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
 .bg-gray-200 {

@@ -16,3 +16,11 @@
 - [x] Improve dark-mode text contrast across gallery pages.
 - [x] Run published-site browser QA across routes, interactions, and mobile layout.
 - [x] Record reproducible findings and verification evidence.
+- [x] Apply Pretendard font globally via theme.css.
+- [x] Redesign index.html as glassmorphism (dark/light).
+- [x] Glass-tint shared surfaces without breaking fixed overlays.
+- [x] Fix QA ISSUE-001 broken placeholder images.
+- [x] Fix QA ISSUE-002 drawer background interaction.
+- [x] Fix QA ISSUE-004 icon control aria-labels.
+- [x] Remove .playwright-cli artifacts and add .gitignore.
+- [x] Verify 15 checks with Playwright + system Edge.

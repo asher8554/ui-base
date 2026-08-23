@@ -36,6 +36,17 @@ python -m http.server 4173 --bind 127.0.0.1
 
 ## 작업 기록
 
+### 2026-08-23 글래스모피즘 + Pretendard 전환 및 최적화
+
+- `theme.css`에서 Pretendard Variable 폰트를 html 레벨에 적용했다. 스타일 데모 페이지의 고유 폰트(아르데코 등)는 그대로 유지된다.
+- `index.html`을 글래스모피즘으로 리디자인했다. 반투명 유리 카드, 배경 블롭, 다크/라이트 모드 대응.
+- `theme.css`의 공용 흰 서피스를 반투명 글래스 톤으로 바꿨다. 카드에 backdrop-filter를 걸면 fixed 오버레이가 깨지므로 블러는 body 직속 헤더에만 적용한다.
+- QA ISSUE-001을 수정했다. `components.html` 1곳, `layouts.html` 3곳의 깨진 via.placeholder.com 이미지를 로컬 CSS 그라디언트로 교체해 외부 요청이 없어졌다.
+- QA ISSUE-002를 수정했다. 햄버거 드로어 뒤에 클릭 차단 백드롭을 추가하고, 테마 토글(z-9999)보다 위로 드로어(z-10001)와 백드롭(z-10000)을 올렸다. 모달·다이얼로그도 z-10000으로 통일했다.
+- QA ISSUE-004를 수정했다. 캐러셀 이전/다음 버튼에 aria-label을 추가했다.
+- `.playwright-cli/` 임시 산출물을 삭제하고 `.gitignore`를 추가했다.
+- Playwright + 시스템 Edge로 15개 항목을 검증해 모두 통과했다.
+
 ### 2026-07-05
 
 - `asher8554/ui-base` 원격 저장소를 로컬 `E:\Github\ui-base`에 연결했습니다.

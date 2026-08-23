@@ -1,5 +1,14 @@
 # Context Notes
 
+## 2026-08-23 글래스모피즘 + Pretendard + 최적화
+
+- `theme.css`의 html 폰트 규칙에 !important가 필요하다. Tailwind CDN이 런타임에 style을 theme.css보다 뒤에 삽입해 같은 선택자 규칙이 역전되기 때문.
+- 카드 서피스에 backdrop-filter를 걸면 stacking context + fixed containing block이 생겨 데모 안의 모달·드로어가 카드 기준으로 배치된다. 공용 서피스에는 반투명 배경만 적용하고 블러는 body 직속 헤더에만 건다.
+- 테마 토글 버튼이 z-9999라서 드로어 백드롭은 z-[10000], 드로어 본체는 z-[10001]을 쓴다.
+- PowerShell `-replace` + `Set-Content`는 UTF-8 파일을 ANSI로 써서 한글이 깨진다. HTML 편집은 Edit 툴만 사용할 것. (components.html 한 번 깨졌다가 git checkout으로 복구함)
+- 검증 스크립트: `C:\Users\asher\AppData\Local\Temp\opencode\uibase-verify\verify.js` (playwright-core + msedge channel, 로컬 서버 4173 필요). 15개 항목 전부 통과.
+- 2026-08-23 기준 변경분은 커밋/푸시 전이다. 사용자 확인 후 push하면 GitHub Pages에 반영된다.
+
 ## 2026-07-05
 
 - User asked to build UI gallery pages in `asher8554/ui-base`.
