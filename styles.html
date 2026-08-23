@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!-- AI UI 디자인 갤러리 정적 페이지 -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <title>디자인 스타일 갤러리</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(50rem 50rem at 112% 18%, rgba(56, 130, 246, 0.14), transparent 55%),
+                radial-gradient(45rem 45rem at -12% 92%, rgba(139, 92, 246, 0.15), transparent 55%),
+                linear-gradient(160deg, #0b0f1a 0%, #0d1322 55%, #111a2e 100%);
+            background-attachment: fixed;
+            color: #f1f5f9;
+        }
+
+        :root.light-mode body {
+            background:
+                radial-gradient(50rem 50rem at 112% 18%, rgba(147, 197, 253, 0.3), transparent 55%),
+                radial-gradient(45rem 45rem at -12% 92%, rgba(196, 181, 253, 0.3), transparent 55%),
+                linear-gradient(160deg, #f8fafc 0%, #eef2f7 55%, #e8edf6 100%);
+            background-attachment: fixed;
+            color: #0f172a;
+        }
+
+        .page-title {
+            color: #f8fafc;
+        }
+
+        :root.light-mode .page-title {
+            color: #0f172a;
+        }
+
+        .page-sub,
+        .page-back {
+            color: #94a3b8;
+        }
+
+        .page-back:hover {
+            color: #e2e8f0;
+        }
+
+        :root.light-mode .page-sub {
+            color: #475569;
+        }
+
+        :root.light-mode .page-back {
+            color: #475569;
+        }
+
+        :root.light-mode .page-back:hover {
+            color: #0f172a;
+        }
+
+        .style-card {
+            display: block;
+            background: #1b2333;
+            border: 1px solid rgba(148, 163, 184, 0.14);
+            border-radius: 1.1rem;
+            padding: 1.9rem;
+            transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .style-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(148, 163, 184, 0.38);
+            background: #212b40;
+            box-shadow: 0 16px 36px rgba(2, 6, 23, 0.45);
+        }
+
+        :root.light-mode .style-card {
+            background: #ffffff;
+            border-color: #e2e8f0;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+        }
+
+        :root.light-mode .style-card:hover {
+            border-color: #94a3b8;
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+        }
+
+        .style-dot {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 9999px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 6px 16px rgba(2, 6, 23, 0.35);
+        }
+
+        .style-title {
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+
+        :root.light-mode .style-title {
+            color: #0f172a;
+        }
+
+        .style-desc {
+            margin-top: 0.65rem;
+            line-height: 1.65;
+            color: #94a3b8;
+        }
+
+        :root.light-mode .style-desc {
+            color: #475569;
+        }
+
+        .style-more {
+            display: inline-block;
+            margin-top: 1.4rem;
+            font-weight: 500;
+            color: #e2e8f0;
+        }
+
+        :root.light-mode .style-more {
+            color: #1e293b;
+        }
+
+        .style-more .arr {
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .style-card:hover .arr {
+            transform: translateX(4px);
+        }
+    </style>
+    <link rel="stylesheet" href="theme.css">
+    <script defer src="theme.js"></script>
+</head>
+<body class="p-6 sm:p-10">
+    <div class="max-w-7xl mx-auto">
+        <a href="index.html" class="page-back inline-flex items-center mb-8">← 갤러리 홈으로</a>
+
+        <header class="mb-10">
+            <h1 class="page-title text-3xl sm:text-4xl font-bold">디자인 스타일 갤러리</h1>
+            <p class="page-sub mt-3 text-lg">13가지 디자인 스타일 예시를 한 곳에서 비교하고 살펴보세요.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a href="glassmorphism.html" class="style-card">
+                <span class="style-dot block" style="background:linear-gradient(135deg,#f472b6,#d946ef);"></span>
+                <h2 class="style-title">글래스모피즘</h2>
+                <p class="style-desc">투명하고 블러 효과가 특징인 현대적 디자인</p>
+                <span class="style-more">자세히 보기 <span class="arr">→</span></span>
+            </a>
+            <a href="neumorphism.html" class="style-card">
+                <span class="style-dot block" style="background:linear-gradient(135deg,#f8fafc,#94a3b8);"></span>
+                <h2 class="style-title">뉴모피즘</h2>
+                <p class="style-desc">부드러운 그림자로 입체감을 표현하는 디자인</p>
+                <span class="style-more">자세히 보기 <span class="arr">→</span></span>
+            </a>
+            <a href="skeuomorphism.html" class="style-card">
+                <span class="style-dot block" style="background:linear-gradient(135deg,#d97706,#7c2d12);"></span>
+                <h2 class="style-title">스큐모피즘</h2>
+                <p class="style-desc">실제 물체를 모방한 사실적인 디자인</p>
+                <span class="style-more">자세히 보기 <span class="arr">→</span></span>
+            </a>
+            <a href="mono.html" class="style-card">
+                <span class="style-dot block" style="background:linear-gradient(135deg,#3f3f46,#09090b);"></span>
+                <h2 class="style-title">모노 디자인</h2>
+                <p class="style-desc">흑백의 미니멀한 디자인</p>
+                <span class="style-more">자세히 보기 <span class="arr">→</span></span>
+            </a>
+            <a href="flat.html" class="style-card">
+                <span class="style-dot block" style="background:linear-gradient(135deg,#60a5fa,#2563eb);"></span>
+                <h2 class="style-title">플랫 디자인</h2>
+                <p class="style-desc">단순하고 깔끔한 2D 디자인</p>
+                <span class="style-more">자세히 보기 <span class="arr">→</span></span>
+            </a>
+            <a href="brutalism.html" class="style-card">
+                <span class="style-dot block" style="background:linear-gradient(135deg,#fb923c,#ea580c);"></span>
+                <h2 class="style-title">브루탈리즘</h2>
+                <p class="style-desc">거칠고 과감한 실험적 디자인</p>
+                <span class="style-more">자세히 보기 <span class="arr">→</span></span>
+            </a>
+            <a href="kitsch.html" class="style-card">
+                <span class="style-dot block" style="background:linear-gradient(135deg,#fbbf24,#ec4899);"></span>
+                <h2 class="style-title">키치 디자인</h2>
+                <p class="style-desc">화려하고 과장된 팝아트 스타일</p>
+                <span class="style-more">자세히 보기 <span class="arr">→</span></span>
+            </a>
+            <a href="maximalism.html" class="style-card">
+                <span class="style-dot block" style="background:linear-gradient(135deg,#ec4899,#be123c);"></span>
+                <h2 class="style-title">맥시멀리즘</h2>
+                <p class="style-desc">풍부하고 장식적인 과감한 디자인</p>
+                <span class="style-more">자세히 보기 <span class="arr">→</span></span>
+            </a>
+            <a href="retrofuturism.html" class="style-card">
+                <span class="style-dot block" style="background:linear-gradient(135deg,#38bdf8,#8b5cf6);"></span>
+                <h2 class="style-title">레트로퓨처리즘</h2>
+                <p class="style-desc">복고적 미래 상상 디자인</p>
+                <span class="style-more">자세히 보기 <span class="arr">→</span></span>
+            </a>
+            <a href="biomorphic.html" class="style-card">
+                <span class="style-dot block" style="background:linear-gradient(135deg,#2dd4bf,#38bdf8);"></span>
+                <h2 class="style-title">바이오모픽</h2>
+                <p class="style-desc">자연의 유기적 형태를 모방한 디자인</p>
+                <span class="style-more">자세히 보기 <span class="arr">→</span></span>
+            </a>
+            <a href="memphis.html" class="style-card">
+                <span class="style-dot block" style="background:linear-gradient(135deg,#f97316,#ec4899);"></span>
+                <h2 class="style-title">멤피스</h2>
+                <p class="style-desc">80년대 팝아트와 포스트모더니즘 스타일</p>
+                <span class="style-more">자세히 보기 <span class="arr">→</span></span>
+            </a>
+            <a href="artdeco.html" class="style-card">
+                <span class="style-dot block" style="background:linear-gradient(135deg,#d4af37,#716408);"></span>
+                <h2 class="style-title">아르데코</h2>
+                <p class="style-desc">기하학적 패턴의 고급스러운 디자인</p>
+                <span class="style-more">자세히 보기 <span class="arr">→</span></span>
+            </a>
+            <a href="minimalism.html" class="style-card">
+                <span class="style-dot block" style="background:linear-gradient(135deg,#d4d4d8,#71717a);"></span>
+                <h2 class="style-title">미니멀리즘</h2>
+                <p class="style-desc">불필요한 요소를 제거한 극도로 단순한 디자인</p>
+                <span class="style-more">자세히 보기 <span class="arr">→</span></span>
+            </a>
+        </div>
+
+        <footer class="mt-12 pb-4 text-center page-sub">
+            <p>© 2024 UI Base</p>
+        </footer>
+    </div>
+</body>
+</html>

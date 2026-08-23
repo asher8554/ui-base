@@ -24,3 +24,13 @@
 - [x] Fix QA ISSUE-004 icon control aria-labels.
 - [x] Remove .playwright-cli artifacts and add .gitignore.
 - [x] Verify 15 checks with Playwright + system Edge.
+- [x] Fix maximalism text-gold/from-gold (undefined Tailwind classes, invisible text).
+- [x] Fix glassmorphism blob click-blocking + missing animate-blob keyframes.
+- [x] Fix layouts back-button/theme-toggle overlap and navbar/banner stacking.
+- [x] Fill empty Features/About/Testimonials/Pricing/Footer placeholders in layouts.
+- [x] Fix components search-suggestion select and file-upload cancel edge case.
+- [x] Add rel=noopener noreferrer to resources external links (8).
+- [x] Verify 39 checks with Playwright + system Edge (38 pass + 1 script expectation fix).
+- [x] Create styles.html collecting 13 design-style examples (screenshot-matched card grid).
+- [x] Link styles.html from index.html as 5th category card; move 13 style cards off index.
+- [x] Verify 19 checks for styles.html + index connection (all pass).

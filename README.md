@@ -18,6 +18,7 @@ python -m http.server 4173 --bind 127.0.0.1
 - `components.html`
 - `layouts.html`
 - `resources.html`
+- `styles.html`
 - `glassmorphism.html`
 - `neumorphism.html`
 - `skeuomorphism.html`
@@ -35,6 +36,12 @@ python -m http.server 4173 --bind 127.0.0.1
 `resources.zip`도 로컬에 포함되어 다운로드 링크가 끊기지 않습니다.
 
 ## 작업 기록
+
+### 2026-08-24 디자인 스타일 갤러리 페이지 추가
+
+- 13가지 디자인 스타일 예시를 모아 보여주는 `styles.html`을 추가했다. 다크 배경에 그라디언트 원, 제목, 설명, `자세히 보기 →` 카드 그리드 구성.
+- `index.html`의 13개 스타일 카드를 `styles.html` 한 장으로 이관하고, 카테고리 카드 5번째로 `디자인 스타일 갤러리`를 연결했다.
+- 같은 세션에서 전 하위페이지 QA로 maximalism 골드 텍스트, glassmorphism blob 클릭 차단, layouts 버튼 겹침·빈 카드, components 검색 제안·파일 업로드, resources rel=noopener를 수정했다.
 
 ### 2026-08-23 글래스모피즘 + Pretendard 전환 및 최적화
 
