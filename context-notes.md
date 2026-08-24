@@ -1,5 +1,14 @@
 # Context Notes
 
+## 2026-08-25 CSO 감사 및 조치
+
+- `/cso` 일상 모드 감사 실행. CRITICAL 0, HIGH 1, MEDIUM 2. 보고서: `.gstack/security-reports/2026-08-25-cso-daily.json` (gitignore로 커밋 안 됨).
+- 핵심 결론: 정적 사이트라 공격면 좁음. 리스크는 전부 서드파티 CDN 스크립트 신뢰에서 발생.
+- 조치(사용자 승인): Alpine 3.16.2 → `assets/vendor/alpinejs-3.16.2.min.js` 로컬 벤더링(components.html). Tailwind → `cdn.tailwindcss.com/3.4.16` 버전 고정(18개 페이지, node 스크립트로 UTF-8 안전 치환). `.gitignore`에 `.gstack/security-reports/` 추가.
+- 잔존 위험(수용): Tailwind Play CDN은 SRI 불가(동적 컴파일러). Pretendard/Google Fonts @import는 CSS라 코드 실행 불가, 완화 대상 아님.
+- 검증: verify.js 14/15 통과. FAIL 1건은 스크립트 임계값 오타(glass>=17 → index가 5카드 허브+styles.html 구조로 바뀌어 유리 요소 11개). 제품 결함 아님. 드로어/캐러셀/콘솔 클린 전부 통과 = 벤더링 Alpine 정상.
+- 교훈 재확인: PowerShell Set-Content는 UTF-8 파괴 → 대량 치환은 node fs 스크립트 사용.
+
 ## 2026-08-24 styles.html 추가 (디자인 스타일 갤러리)
 
 - 사용자 제시 스크린샷과 동일하게 `styles.html` 신설: 다크 네이비 배경 + 그라디언트 원 도트 + 제목/설명/`자세히 보기 →` 카드 13장, 스크린샷과 같은 순서(glassmorphism → minimalism).

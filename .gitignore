@@ -1,6 +1,9 @@
 # 브라우저 QA 임시 산출물
 .playwright-cli/
 
+# 보안 감사 보고서는 공개 저장소에 올리지 않는다
+.gstack/security-reports/
+
 # 로컬 캐시 / OS 파일
 __pycache__/
 Thumbs.db

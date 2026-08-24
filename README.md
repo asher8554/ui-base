@@ -43,6 +43,14 @@ python -m http.server 4173 --bind 127.0.0.1
 - `index.html`의 13개 스타일 카드를 `styles.html` 한 장으로 이관하고, 카테고리 카드 5번째로 `디자인 스타일 갤러리`를 연결했다.
 - 같은 세션에서 전 하위페이지 QA로 maximalism 골드 텍스트, glassmorphism blob 클릭 차단, layouts 버튼 겹침·빈 카드, components 검색 제안·파일 업로드, resources rel=noopener를 수정했다.
 
+### 2026-08-25 CSO 감사 조치
+
+- 보안 감사에서 CDN 스크립트 무결성·버전 리스크가 발견되어 조치했다.
+- Alpine.js 3.16.2를 `assets/vendor/alpinejs-3.16.2.min.js`로 로컬 벤더링했다. jsDelivr 스크립트 의존 제거.
+- Tailwind Play CDN을 버전 고정 URL(`cdn.tailwindcss.com/3.4.16`)로 변경했다. 18개 페이지 전체.
+- `.gitignore`에 `.gstack/security-reports/`를 추가해 보안 보고서가 공개 저장소에 올라가지 않게 했다.
+- Playwright 검증 14/15 통과 (1건은 검증 스크립트의 옛 임계값 오탐).
+
 ### 2026-08-23 글래스모피즘 + Pretendard 전환 및 최적화
 
 - `theme.css`에서 Pretendard Variable 폰트를 html 레벨에 적용했다. 스타일 데모 페이지의 고유 폰트(아르데코 등)는 그대로 유지된다.
