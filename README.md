@@ -4,7 +4,7 @@ UI 컴포넌트와 레이아웃 예제를 GitHub Pages에서 열 수 있도록 �
 
 배포된 GitHub Pages 주소는 `https://asher8554.github.io/ui-base/`입니다.
 
-## Local Preview
+## 로컬 미리보기
 
 ```powershell
 python -m http.server 4173 --bind 127.0.0.1
@@ -12,7 +12,7 @@ python -m http.server 4173 --bind 127.0.0.1
 
 브라우저에서 `http://127.0.0.1:4173/index.html`을 엽니다.
 
-## Pages
+## 페이지
 
 - `index.html`
 - `components.html`
